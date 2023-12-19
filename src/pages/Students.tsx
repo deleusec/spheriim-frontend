@@ -3,7 +3,7 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
-import {students} from '../data/students.data'
+import {students_Data} from '../data/students.data'
 
 const Students: React.FC = () => {
   //State
@@ -76,7 +76,7 @@ const Students: React.FC = () => {
         </div>
         <AgGridReact
           columnDefs={columnDefs}
-          rowData={students}
+          rowData={students_Data}
           defaultColDef={defaultColDef}
           quickFilterText={quickFilterText}
           rowHeight={rowHeight}
