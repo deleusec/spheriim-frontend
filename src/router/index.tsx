@@ -10,6 +10,8 @@ import Students from "../pages/Students";
 import Student from "../pages/Student";
 import Classes from "../pages/Classes";
 import Class from "../pages/Class";
+import Teachers from "../pages/Teachers";
+import Teacher from "../pages/Teacher";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
                     {
                         path: "/classes/:id",
                         element: <Class />
+                    },
+                    {
+                        path: "/teachers",
+                        element: <Teachers />
+                    },
+                    {
+                        path: "/teachers/:id",
+                        element: <Teacher />
                     }
                 ]
             }
