@@ -2,84 +2,84 @@ import CamilleImage from '../assets/images/Camille.png'
 import YasmineImage from '../assets/images/Yasmine.png'
 import ClaudiaImage from '../assets/images/Claudia.png'
 import MathieuImage from '../assets/images/Mathieu.png'
-import { Student } from '../types/Students.type'
+import { Teachers } from '../types/Teachers.type'
 
-export const students_Data: Student[] = [
+export const teachers_Data: Teachers[] = [
     {
       profilePic: CamilleImage,
       name: 'Camille DESMOULINS',
-      class: 'IIM A4 FL',
+      profession: 'Développeuse React JS',
       email: 'camilledesmoulins@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2020',
     },
     {
       profilePic:YasmineImage,
       name: 'Yasmine ROSA',
-      class: 'IIM A4 FL',
+      profession: 'Développeuse Rust',
       email: 'yasminerosa@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2022',
     },
     {
       profilePic: ClaudiaImage,
       name: 'Claudia AZUR',
-      class: 'IIM A4 FL',
+      profession: 'Développeuse Node JS',
       email: 'claudiaazur@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2023',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Gestion de projet',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2021',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2017',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2022',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2016',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2023',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2023',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2018',
     },
     {
       profilePic: MathieuImage,
       name: 'Mathieu ROJO',
-      class: 'IIM A4 FL',
+      profession: 'Soft Skills',
       email: 'mathieurojo@edu.devinci.fr',
-      startYear: 'A2(2021-2022)',
+      startYear: '2019',
     },
   ]
