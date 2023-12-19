@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
       },
+      boxShadow: {
+        'cards': '1px 4px 7px 0px rgba(233, 234, 233, 1)',
+      }
     },
   },
   plugins: [],
