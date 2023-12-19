@@ -12,7 +12,7 @@ function Sidebar() {
 
 
     return (
-        <div className="flex flex-col items-center h-[100vh] gap-5 p-10">
+        <div className="flex flex-col items-center h-[100vh] gap-5 p-10 border-r border-light-background">
             <div className="mb-10">
                 <Link className="font-bold text-3xl" to="/">Spher<span className="bg-gradient-to-b from-primary to-primary-light inline-block text-transparent bg-clip-text">IIM</span></Link>
             </div>
