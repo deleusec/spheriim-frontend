@@ -12,6 +12,8 @@ import Classes from "../pages/Classes";
 import Class from "../pages/Class";
 import Teachers from "../pages/Teachers";
 import Teacher from "../pages/Teacher";
+import Settings from "../pages/Settings";
+import Login from "../pages/authentication/Login";
 
 const router = createBrowserRouter([
     {
@@ -47,8 +49,16 @@ const router = createBrowserRouter([
                     {
                         path: "/teachers/:id",
                         element: <Teacher />
+                    },
+                    {
+                        path: "/settings",
+                        element: <Settings />
                     }
                 ]
+            },
+            {
+                path: "/login",
+                element: <Login />
             }
         ]
     }
