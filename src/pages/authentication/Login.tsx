@@ -34,7 +34,7 @@ function Login() {
                         </div>
                     </div>
                     <div>
-                        <button className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit">Login</button>
+                        <button className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-light focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary" type="submit">Login</button>
                     </div>
                 </form>
             </div>

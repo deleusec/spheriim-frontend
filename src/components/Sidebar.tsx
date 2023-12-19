@@ -14,35 +14,35 @@ function Sidebar() {
     return (
         <div className="flex flex-col items-center h-[100vh] gap-5 p-10">
             <div className="mb-10">
-                <Link className="font-bold text-[40px]" to="/">Spher<span className="bg-gradient-to-b from-primary to-primary-light inline-block text-transparent bg-clip-text">IIM</span></Link>
+                <Link className="font-bold text-3xl" to="/">Spher<span className="bg-gradient-to-b from-primary to-primary-light inline-block text-transparent bg-clip-text">IIM</span></Link>
             </div>
             <nav>
-                <ul>
+                <ul className="space-y-2">
                     <li>
                         <Link to="/">
                             <SidebarButton text="Accueil" active={isHome} >
-                                <HomeIcon className="w-6 h-6" />
+                                <HomeIcon className="w-5 h-5" />
                             </SidebarButton>
                         </Link>
                     </li>
                     <li>
                         <Link to="students">
                             <SidebarButton text="Etudiants" active={isStudents}>
-                                <AcademicCapIcon className="w-6 h-6" />
+                                <AcademicCapIcon className="w-5 h-5" />
                             </SidebarButton>
                         </Link>
                     </li>
                     <li>
                         <Link to="classes">
                             <SidebarButton text="Classes" active={isClasses}>
-                                <UsersIcon className="w-6 h-6" />
+                                <UsersIcon className="w-5 h-5" />
                             </SidebarButton>
                         </Link>
                     </li>
                     <li>
                         <Link to="teachers">
                             <SidebarButton text="Professeurs" active={isTeachers}>
-                                <BriefcaseIcon className="w-6 h-6" />
+                                <BriefcaseIcon className="w-5 h-5" />
                             </SidebarButton>
                         </Link>
                     </li>
@@ -55,12 +55,12 @@ function Sidebar() {
             <div>
                 <Link to="settings">
                     <SidebarButton text="Paramètres" active={isSettings}>
-                        <Cog6ToothIcon className="w-6 h-6" />
+                        <Cog6ToothIcon className="w-5 h-5" />
                     </SidebarButton>
                 </Link>
                 <Link to="login">
                     <SidebarButton text="Déconnexion" active={isLogin}>
-                        <ArrowRightStartOnRectangleIcon className="w-6 h-6" />
+                        <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
                     </SidebarButton>
                 </Link>
             </div>

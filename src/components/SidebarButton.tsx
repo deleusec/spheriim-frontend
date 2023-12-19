@@ -14,7 +14,7 @@ SidebarButton.defaultProps = {
 
 function SidebarButton(props: SidebarButtonProps) {
     return ( 
-        <button className={`flex gap-4 min-w-[250px] py-4 px-5 rounded-lg bg-transparent ${props.active && 'bg-gradient-to-r from-primary to-primary-light text-white '} duration-200`} onClick={props.onClick}>
+        <button className={`flex items-center gap-4 min-w-[250px] py-3 px-4 rounded-lg text-sm ${props.active && 'bg-primary text-white '}`} onClick={props.onClick}>
             { props.children }
             <span>{ props.text }</span>
         </button>
