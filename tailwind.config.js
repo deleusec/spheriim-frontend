@@ -7,7 +7,8 @@ export default {
         'primary': '#F07D00',
         'secondary': '#F07D00',
         'dark': '#636466',
-        'light': '#F3F3F3',
+        'light': '#E9EAE9',
+        'light-background': '#F3F3F3',
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
