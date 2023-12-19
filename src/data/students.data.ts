@@ -1,7 +1,7 @@
-import CamilleImage from '../../public/images/Camille.png'
-import YasmineImage from '../../public/images/Yasmine.png'
-import ClaudiaImage from '../../public/images/Claudia.png'
-import MathieuImage from '../../public/images/Mathieu.png'
+import CamilleImage from '../assets/images/Camille.png'
+import YasmineImage from '../assets/images/Yasmine.png'
+import ClaudiaImage from '../assets/images/Claudia.png'
+import MathieuImage from '../assets/images/Mathieu.png'
 import { Student } from '../types/Students.type'
 
 export const students_Data: Student[] = [
