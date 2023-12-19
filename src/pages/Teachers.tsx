@@ -65,13 +65,13 @@ const Teachers: React.FC = () => {
     <div className="flex justify-center">
       <div className="ag-theme-alpine w-11/12 my-4">
       <h1 className="text-center text-3xl font-bold mb-4">Liste des professeurs</h1>
-        <div className="example-header">
+      <div className="example-header max-w-[300px]">
           <input
             type="text"
             id="filter-text-box"
             placeholder="Search..."
             onChange={onFilterTextBoxChanged}
-            className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 mb-3 rounded-lg text-sm focus:outline-none"
+            className="mb-3"
           />
         </div>
         <AgGridReact
