@@ -1,8 +1,6 @@
 import HeaderCards from "./HeaderCards.tsx";
 import UserTieIcon from "../assets/icons/user-tie.svg";
 import React from "react";
-import {render} from "react-dom";
-
 class StudentBio extends React.Component {
     render() {
         const { bio } = this.props;

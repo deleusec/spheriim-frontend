@@ -1,4 +1,3 @@
-import React from 'react';
 import HeaderCards from './HeaderCards';
 import LinkIcon from '../assets/icons/link.svg';
 

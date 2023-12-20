@@ -14,6 +14,4 @@ class HeaderCards extends React.Component {
         );
     }
 }
-
-
 export default HeaderCards;
