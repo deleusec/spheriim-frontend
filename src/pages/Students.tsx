@@ -26,10 +26,18 @@ const Students: React.FC = () => {
     navigate(`/classes/${id}`)
   }
 
-  const onRowClicked = useCallback((event: any) => 
-    navigate(`/students/${event.data.id}`), 
-    [navigate]
-  )
+  const redirectToStudent = (id: string, studentData: any) => {
+     navigate(`/students/${id}`, { state: { studentData } });
+  };
+
+  const onRowClicked = useCallback(
+     (event: any) => {
+         // Naviguez ou effectuez d'autres actions si nécessaire
+         redirectToStudent(event.data.id, event.data);
+         console.log(event.data);
+     },
+     [navigate]
+  );
 
   const getRowStyle = useCallback(() => {
     return { cursor: 'pointer' }
@@ -43,7 +51,7 @@ const Students: React.FC = () => {
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
           <img src={params.data.profilePic} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
-          <span>{params.value}</span>
+          <span>{params.value} {params.data.firstName}</span>
         </div>
       ),
       cellStyle: centerStyle,
