@@ -1,7 +1,6 @@
 import CareerContent from "./CareerContent.tsx";
 import HeaderCards from "./HeaderCards.tsx";
 import BriefCaseIcon from "../assets/icons/briefcase.svg";
-import React from "react";
 
 function CareerCard() {
     return (
