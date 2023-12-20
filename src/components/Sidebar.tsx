@@ -52,17 +52,22 @@ function Sidebar() {
 
             <div className="flex-1"></div>
 
-            <div>
-                <Link to="settings">
-                    <SidebarButton text="Paramètres" active={isSettings}>
-                        <Cog6ToothIcon className="w-5 h-5" />
-                    </SidebarButton>
-                </Link>
-                <Link to="login">
-                    <SidebarButton text="Déconnexion" active={isLogin}>
-                        <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
-                    </SidebarButton>
-                </Link>
+            <div className="space-y-2">
+                <div>
+                    <Link to="settings">
+                        <SidebarButton text="Paramètres" active={isSettings}>
+                            <Cog6ToothIcon className="w-5 h-5" />
+                        </SidebarButton>
+                    </Link>
+                </div>
+                <div>
+                    <Link to="login">
+                        <SidebarButton text="Déconnexion" active={isLogin}>
+                            <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
+                        </SidebarButton>
+                    </Link>
+                </div>
+
             </div>
         </div>
     );

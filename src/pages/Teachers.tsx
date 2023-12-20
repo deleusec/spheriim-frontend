@@ -25,7 +25,7 @@ const Teachers: React.FC = () => {
       field: "name",
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
-          <img src={params.data.profilePic} className="w-20 h-20 rounded-full mr-3" alt="Profile" />
+          <img src={params.data.profilePic} className="w-12 h-12 rounded-full mr-3" alt="Profile" />
           <span>{params.value}</span>
         </div>
       ),
