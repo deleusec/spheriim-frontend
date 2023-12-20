@@ -1,14 +1,14 @@
 import React from 'react';
 import HeaderCards from './HeaderCards';
-
+import LinkIcon from '../assets/icons/link.svg';
 
 function LinksList() {
 
     return (
-        <div className=" p-[16px] h-auto w-auto max-w-[24rem] rounded-xl shadow-cards flex flex-col gap-4">
-            <HeaderCards svg="https://cdn-icons-png.flaticon.com/512/733/733579.png" title="Liens"/> 
+        <div className=" p-[16px] w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
+            <HeaderCards svg={LinkIcon} title="Liens"/>
             <div>
-                <ul className="flex flex-col gap-4">
+                <ul className="flex flex-col gap-4 text-sm">
                     <li className="text-primary">
                         Github : <a href="" className="text-black border-b-[1px] border-black mx-2">CamilleDev</a>
                     </li>
