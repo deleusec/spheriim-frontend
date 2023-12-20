@@ -5,7 +5,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import {students_Data} from '../data/students.data'
 import { useNavigate } from 'react-router-dom'
-import ListingHeader from '../components/ListingHeader'
+import HeadTitles from '../components/HeadTitles'
 
 
 const Students: React.FC = () => {
@@ -26,10 +26,18 @@ const Students: React.FC = () => {
     navigate(`/classes/${id}`)
   }
 
-  const onRowClicked = useCallback((event: any) => 
-    navigate(`/students/${event.data.id}`), 
-    [navigate]
-  )
+  const redirectToStudent = (id: string, studentData: any) => {
+     navigate(`/students/${id}`, { state: { studentData } });
+  };
+
+  const onRowClicked = useCallback(
+     (event: any) => {
+         // Naviguez ou effectuez d'autres actions si nécessaire
+         redirectToStudent(event.data.id, event.data);
+         console.log(event.data);
+     },
+     [navigate]
+  );
 
   const getRowStyle = useCallback(() => {
     return { cursor: 'pointer' }
@@ -43,7 +51,7 @@ const Students: React.FC = () => {
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
           <img src={params.data.profilePic} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
-          <span>{params.value}</span>
+          <span>{params.value} {params.data.firstName}</span>
         </div>
       ),
       cellStyle: centerStyle,
@@ -113,7 +121,7 @@ const Students: React.FC = () => {
 
   return (
     <div className="flex flex-col items- justify-center">
-    <ListingHeader title="Liste des étudiants" subtitle='IIM A4 FullStack' />
+    <HeadTitles title="Liste des étudiants" subtitle='IIM A4 FullStack' />
       <div className="ag-theme-alpine w-full p-8">
 
         <div className="example-header max-w-[300px]">

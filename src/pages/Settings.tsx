@@ -1,9 +1,11 @@
+import HeadTitles from "../components/HeadTitles";
+
 function Settings() {
-    return ( 
+    return (
         <div>
-            <h1>Settings</h1>
+            <HeadTitles title="Settings" />
         </div>
-     );
+    );
 }
 
 export default Settings;
