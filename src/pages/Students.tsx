@@ -4,10 +4,13 @@ import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import {students_Data} from '../data/students.data'
+import { useNavigate } from 'react-router-dom'
+
 
 const Students: React.FC = () => {
   //State
   const [quickFilterText, setQuickFilterText] = useState('')
+  const navigate = useNavigate()
 
   const rowHeight = 100
 
@@ -17,6 +20,19 @@ const Students: React.FC = () => {
     justifyContent: 'flex-start',
     height: '100%', 
   }
+
+  const redirectToClass = (id: string) => {
+    navigate(`/classes/${id}`)
+  }
+
+  const onRowClicked = useCallback((event: any) => 
+    navigate(`/students/${event.data.id}`), 
+    [navigate]
+  )
+
+  const getRowStyle = useCallback(() => {
+    return { cursor: 'pointer' }
+  }, []);
   
   //Ag-Grid
   const columnDefs: ColDef[] = [
@@ -25,24 +41,57 @@ const Students: React.FC = () => {
       field: "name",
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
-          <img src={params.data.profilePic} className="w-12 h-12 rounded-full mr-3" alt="Profile" />
+          <img src={params.data.profilePic} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
           <span>{params.value}</span>
         </div>
       ),
       cellStyle: centerStyle,
     },
-    { 
+    {
       headerName: "Classe",
-      field: "class", 
+      field: "class",
+      cellRenderer: (params: any) => (
+        <button  onClick={() => redirectToClass(params.data.id)}
+          style={{
+            backgroundColor: '#F07D00',
+            color: 'white',
+            border: 'none',
+            borderRadius: '10px',
+            padding: '4px 12px', 
+            fontSize: '13px',
+            lineHeight: '1', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+            fontWeight: 'bold',
+            height: '24px', 
+          }}>
+          {params.value}
+        </button>
+      ),
       cellStyle: centerStyle,
     },
-    { headerName: "Mail",
+    {
+      headerName: "Mail",
       field: "email",
-      cellStyle: centerStyle,
-    },
-    { headerName: "Année de début",
-      field: "startYear", 
+      cellRenderer: (params: any) => (
+        <a href={`mailto:${params.value}`} style={{
+          color: '#F07D00', 
+          textDecoration: 'underline',
+        }}>
+          {params.value}
+        </a>
+      ),
       cellStyle: centerStyle, 
+    },
+    {
+      headerName: "Année de début",
+      field: "startYear",
+      cellRenderer: (params: any) => (
+        <span style={{ fontWeight: 'bold' }}>{params.value}</span>
+      ),
+      cellStyle: centerStyle,
     },
   ]
 
@@ -82,6 +131,8 @@ const Students: React.FC = () => {
           rowHeight={rowHeight}
           pagination={true}
           paginationPageSize={5}
+          onRowClicked={onRowClicked}
+          getRowStyle={getRowStyle}
           domLayout='autoHeight'
         />
       </div>

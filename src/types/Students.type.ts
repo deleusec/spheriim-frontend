@@ -1,4 +1,5 @@
 export interface Student {
+    id: string
     profilePic: string
     name: string
     class: string
