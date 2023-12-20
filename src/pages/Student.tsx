@@ -12,7 +12,7 @@ function Student() {
                 <div className="flex col-start-1 col-span-4 row-start-1 row-span-1 h-full w-full">
                     <LinksList/>
                 </div>
-                <div className="flex col-start-5 col-span-5 row-start-1 row-span-1 h-full w-full">
+                <div className="flex col-start-5 col-span-6 row-start-1 row-span-1 h-full w-full">
                     <StudentBio bio="Souhaite devenir développeuse Front-end ou chef de projet et travailler à l’étranger."/>
                 </div>
                 <div className="flex col-span-10 row-start-2 row-span-1 h-full w-full">
