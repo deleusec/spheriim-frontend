@@ -25,10 +25,18 @@ const Students: React.FC = () => {
     navigate(`/classes/${id}`)
   }
 
-  const onRowClicked = useCallback((event: any) => 
-    navigate(`/students/${event.data.id}`), 
-    [navigate]
-  )
+  const redirectToStudent = (id: string, studentData: any) => {
+     navigate(`/students/${id}`, { state: { studentData } });
+  };
+
+  const onRowClicked = useCallback(
+     (event: any) => {
+         // Naviguez ou effectuez d'autres actions si nécessaire
+         redirectToStudent(event.data.id, event.data);
+         console.log(event.data);
+     },
+     [navigate]
+  );
 
   const getRowStyle = useCallback(() => {
     return { cursor: 'pointer' }
@@ -42,7 +50,7 @@ const Students: React.FC = () => {
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
           <img src={params.data.profilePic} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
-          <span>{params.value}</span>
+          <span>{params.value} {params.data.firstName}</span>
         </div>
       ),
       cellStyle: centerStyle,
@@ -113,7 +121,7 @@ const Students: React.FC = () => {
   return (
     <div className="flex justify-center">
       <div className="ag-theme-alpine w-11/12 my-4">
-      <h1 className="text-center text-3xl font-bold mb-4">Liste des étudients: <span style={{ color: '#F07D00' }}>IIM A4 FullStack</span></h1>
+      <h1 className="text-center text-3xl font-bold mb-4">Liste des étudiants: <span style={{ color: '#F07D00' }}>IIM A4 FullStack</span></h1>
         <div className="example-header max-w-[300px]">
           <input
             type="text"
