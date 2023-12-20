@@ -1,7 +1,6 @@
 import CareerContent from "./CareerContent.tsx";
 import HeaderCards from "./HeaderCards.tsx";
 import GraduationCapIcon from "../assets/icons/graduation-cap.svg";
-import React from "react";
 
 function CareerCard() {
     return (

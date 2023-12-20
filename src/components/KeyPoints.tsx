@@ -1,13 +1,9 @@
-import React from 'react';
+function KeyPoints(props: { li: string; }) {
+    const { li } = props;
 
-class KeyPoints extends React.Component {
-    render() {
-        const {li} = this.props;
-
-        return (
-            <li className="text-primary list-disc ml-4">{li}</li>
-        )
-    }
+    return (
+        <li className="text-primary list-disc ml-4">{li}</li>
+    )
 }
 
 export default KeyPoints;
