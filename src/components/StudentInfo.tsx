@@ -5,7 +5,7 @@ class StudentInfo extends React.Component {
         const { firstname, name, mail, axe, grade, startYear, jobPosition, job, company } = this.props;
 
         return (
-            <section className="w-full flex justify-center items-center gap-12 p-6 mb-8 bg-white">
+            <section className="w-full flex justify-center items-center gap-12 p-6 bg-white">
                 <div className="w-1/3 md:w-1/5 max-w-[200px]">
                     <img className="w-full h-full object-contain rounded-full" src="https://varbai.com/wp-content/uploads/2019/02/thispersondoesnotexis.jpg" alt="student picture"/>
                 </div>
