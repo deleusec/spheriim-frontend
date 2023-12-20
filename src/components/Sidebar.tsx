@@ -25,7 +25,7 @@ function Sidebar() {
             </div>
             <div className="mb-10">
                 { sidebarOpen ? <Link className="font-bold text-3xl" to="/">Spher<span className="bg-gradient-to-b from-primary to-primary-light inline-block text-transparent bg-clip-text">IIM</span></Link>
-                : <Link className="font-bold text-3xl" to="/"><img src="./spheriim.svg" alt="Spheriim logo" className="w-10" /></Link>}
+                : <Link className="font-bold text-3xl" to="/"><img src="/spheriim.svg" alt="Spheriim logo" className="w-10" /></Link>}
             </div>
             <nav>
                 <ul className="space-y-2">
