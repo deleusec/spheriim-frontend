@@ -1,10 +1,10 @@
-interface ListingHeaderProps {
+interface HeadTitlesProps {
     title: string;
     subtitle?: string;
     description?: string;
 }
 
-function ListingHeader(props: ListingHeaderProps) {
+function HeadTitles(props: HeadTitlesProps) {
     return ( 
         <div className="w-full p-8">
             <h1>{props.title}</h1>
@@ -14,4 +14,4 @@ function ListingHeader(props: ListingHeaderProps) {
      );
 }
 
-export default ListingHeader;
+export default HeadTitles;

@@ -4,7 +4,7 @@ import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import { teachers_Data } from '../data/teachers.data'
-import ListingHeader from '../components/ListingHeader'
+import HeadTitles from '../components/HeadTitles'
 
 const Teachers: React.FC = () => {
   //State
@@ -16,9 +16,9 @@ const Teachers: React.FC = () => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    height: '100%',
+    height: '100%', 
   }
-
+  
   //Ag-Grid
   const columnDefs: ColDef[] = [
     {
@@ -32,20 +32,18 @@ const Teachers: React.FC = () => {
       ),
       cellStyle: centerStyle,
     },
-    {
+    { 
       headerName: "Profession",
-      field: "profession",
+      field: "profession", 
       cellStyle: centerStyle,
     },
-    {
-      headerName: "Mail",
+    { headerName: "Mail",
       field: "email",
       cellStyle: centerStyle,
     },
-    {
-      headerName: "Année de début",
-      field: "startYear",
-      cellStyle: centerStyle,
+    { headerName: "Année de début",
+      field: "startYear", 
+      cellStyle: centerStyle, 
     },
   ]
 
@@ -66,7 +64,7 @@ const Teachers: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <ListingHeader title="Liste des professeurs" />
+      <HeadTitles title="Liste des professeurs" />
       <div className="ag-theme-alpine w-full p-8">
         <div className="example-header max-w-[300px]">
           <input
@@ -91,7 +89,7 @@ const Teachers: React.FC = () => {
     </div>
   )
 }
-
+  
 
 export default Teachers
 
