@@ -1,8 +1,10 @@
+import ListingHeader from "../components/ListingHeader";
+
 function Home() {
     return (
-        <>
-            <h1>Accueil</h1>
-        </>
+        <div>
+            <ListingHeader title="Accueil" subtitle="Bienvenue sur SpherIIM" />
+        </div>
     );
 }
 
