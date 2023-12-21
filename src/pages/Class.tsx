@@ -4,6 +4,7 @@ import Students from '../pages/Students';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { data } from '../components/Graph';
+import Calendar from "./Calendar";
 
 const NewStudents = data.datasets[0].data[0]
 
@@ -22,9 +23,13 @@ function Class() {
                     <p className="absolute text-5xl text-primary" style={{ top: '47%' }}>{NewStudents}</p>
                 </div>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 rounded-xl shadow-cards bg-white mx-8">
                 <Students/>
             </div>
+            <div className="mt-10 rounded-xl shadow-cards bg-white mx-8">
+                <Calendar/>
+            </div>
+
         </>
     );
 }
