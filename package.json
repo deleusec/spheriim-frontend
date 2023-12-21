@@ -16,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.1.1",
+    "@types/chart.js": "^2.9.41",
     "ag-grid-community": "^31.0.1",
     "ag-grid-react": "^31.0.1",
     "chart.js": "^4.4.1",
