@@ -18,13 +18,13 @@ function Student() {
     return (
         <>
             <section className="flex flex-col w-full">
-                <StudentInfo profilePic={studentData?.profilePic} firstname={studentData?.firstName} name={studentData?.name} mail={studentData?.email} grade={studentData?.class}  startYear={studentData?.startYear} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
+                <StudentInfo profilePic={studentData?.profilePic} firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={studentData?.class.name}  startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
                 <div className="grid grid-cols-9 auto-rows-auto gap-5 p-8">
                     <div className="flex col-start-1 col-span-4 row-start-1 row-span-1 h-full w-full">
                         <LinksList github={studentData?.github} linkedin={studentData?.linkedin} portfolio={studentData?.porfolio} />
                     </div>
                     <div className="flex col-start-5 col-span-6 row-start-1 row-span-1 h-full w-full">
-                        <StudentBio bio={studentData?.bio} />
+                        <StudentBio bio={studentData?.project_description} />
                     </div>
                         <div className="col-start-1 col-span-3 row-start-2 row-span-1 p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
                             <HeaderCards svg={ListIcon} title="Compétences acquises" />
