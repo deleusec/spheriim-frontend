@@ -1,6 +1,6 @@
 import HeaderCards from "./HeaderCards.tsx";
 
-function KeyPoints(props: { technos?: object[], svg?: string, title?: string}) {
+function KeyPoints(props: { technos?: object[]; svg?: string; title?: string}) {
     const { technos, svg, title } = props;
 
     return (

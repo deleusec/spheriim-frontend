@@ -36,10 +36,10 @@ function Student() {
                             <KeyPoints technos={studentData?.tools} svg={ComputerCodeIcon} title="Technos préférées" />
                         </div>
                         <div className="flex col-span-10 row-start-3 row-span-1 h-full w-full">
-                            <SchoolCard />
+                            <SchoolCard studies={studentData?.studies} />
                         </div>
                         <div className="flex col-span-10 row-start-4 row-span-1 h-full w-full">
-                            <CareerCard />
+                            <CareerCard experiences={studentData?.experiences} />
                         </div>
                     </div>
             </section>
