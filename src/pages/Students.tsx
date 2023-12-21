@@ -5,6 +5,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import {students_Data} from '../data/students.data'
 import { useNavigate } from 'react-router-dom'
+import HeadTitles from '../components/HeadTitles'
 
 
 const Students: React.FC = () => {
@@ -119,9 +120,10 @@ const Students: React.FC = () => {
   }, [])
 
   return (
-    <div className="flex justify-center">
-      <div className="ag-theme-alpine w-11/12 my-4">
-      <h1 className="text-center text-3xl font-bold mb-4">Liste des étudiants: <span style={{ color: '#F07D00' }}>IIM A4 FullStack</span></h1>
+    <div className="flex flex-col items- justify-center">
+    <HeadTitles title="Liste des étudiants" subtitle='IIM A4 FullStack' />
+      <div className="ag-theme-alpine w-full p-8">
+
         <div className="example-header max-w-[300px]">
           <input
             type="text"

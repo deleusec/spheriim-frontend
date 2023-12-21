@@ -4,6 +4,7 @@ import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import { teachers_Data } from '../data/teachers.data'
+import HeadTitles from '../components/HeadTitles'
 
 const Teachers: React.FC = () => {
   //State
@@ -25,7 +26,7 @@ const Teachers: React.FC = () => {
       field: "name",
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
-          <img src={params.data.profilePic} className="w-12 h-12 rounded-full mr-3" alt="Profile" />
+          <img src={params.data.profilePic} className="w-16 h-16 rounded-full mr-3" alt="Profile" />
           <span>{params.value}</span>
         </div>
       ),
@@ -38,11 +39,23 @@ const Teachers: React.FC = () => {
     },
     { headerName: "Mail",
       field: "email",
+      cellRenderer: (params: any) => (
+        <a href={`mailto:${params.value}`} style={{
+          color: '#F07D00', 
+          textDecoration: 'underline',
+        }}>
+          {params.value}
+        </a>
+      ),
       cellStyle: centerStyle,
     },
-    { headerName: "Année de début",
-      field: "startYear", 
-      cellStyle: centerStyle, 
+    {
+      headerName: "Année de début",
+      field: "startYear",
+      cellRenderer: (params: any) => (
+        <span style={{ fontWeight: 'bold' }}>{params.value}</span>
+      ),
+      cellStyle: centerStyle,
     },
   ]
 
@@ -62,10 +75,10 @@ const Teachers: React.FC = () => {
   }, [])
 
   return (
-    <div className="flex justify-center">
-      <div className="ag-theme-alpine w-11/12 my-4">
-      <h1 className="text-center text-3xl font-bold mb-4">Liste des professeurs</h1>
-      <div className="example-header max-w-[300px]">
+    <div className="flex flex-col items-center justify-center">
+      <HeadTitles title="Liste des professeurs" />
+      <div className="ag-theme-alpine w-full p-8">
+        <div className="example-header max-w-[300px]">
           <input
             type="text"
             id="filter-text-box"
