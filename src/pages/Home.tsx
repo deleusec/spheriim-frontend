@@ -1,8 +1,10 @@
+import HeadTitles from "../components/HeadTitles";
+
 function Home() {
     return (
-        <>
-            <h1>Accueil</h1>
-        </>
+        <div>
+            <HeadTitles title="Accueil" subtitle="Bienvenue sur SpherIIM" />
+        </div>
     );
 }
 
