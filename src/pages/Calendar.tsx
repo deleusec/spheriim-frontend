@@ -2,6 +2,7 @@ import React from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import { teachers_Data } from '../data/teachers.data'
+import Card from '../components/Card';
 
 export default class Calendar extends React.Component {
     getEvents() {
@@ -33,14 +34,17 @@ export default class Calendar extends React.Component {
 
     render() {
         return (
-            <div className="container mx-auto p-4 max-w-6xl">
-                <FullCalendar
-                    plugins={[dayGridPlugin]}
-                    initialView="dayGridMonth"
-                    events={this.getEvents()} 
-                    eventContent={this.renderEventContent}
-                    weekends={false}
-                />
+            <div className="container mx-auto p-8 w-full">
+                <Card>
+                    <FullCalendar
+                        plugins={[dayGridPlugin]}
+                        initialView="dayGridMonth"
+                        events={this.getEvents()}
+                        eventContent={this.renderEventContent}
+                        weekends={false}
+                    />
+                </Card>
+
             </div>
         )
     }
