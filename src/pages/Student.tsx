@@ -26,7 +26,7 @@ function Student() {
                     <div className="flex col-start-5 col-span-6 row-start-1 row-span-1 h-full w-full">
                         <StudentBio bio={studentData?.bio} />
                     </div>
-                        <div className="col-start-1 col-span-3 row-start-2 row-span-1 p-[16px] h-auto w-auto max-w-[24rem] rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
+                        <div className="col-start-1 col-span-3 row-start-2 row-span-1 p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
                             <HeaderCards svg={ListIcon} title="Compétences acquises" />
                             <div className="gap-16 flex max-h-96 h-full">
                                 <ul className="gap-6 flex flex-col">
@@ -45,7 +45,7 @@ function Student() {
                                 </ul>
                             </div>
                         </div>
-                        <div className="col-start-4 col-span-3 row-start-2 row-span-1 p-[16px] h-auto w-auto max-w-[24rem] rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
+                        <div className="col-start-4 col-span-3 row-start-2 row-span-1 p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
                             <HeaderCards svg={ArrowTrendDownIcon} title="Points d'amélioration" />
                             <ul className="gap-6 flex flex-col">
                                 <KeyPoints li="Gestion de projet" />
@@ -54,7 +54,7 @@ function Student() {
                                 <KeyPoints li="Node JS" />
                             </ul>
                         </div>
-                        <div className="col-start-7 col-span-3 row-start-2 row-span-1 p-[16px] h-auto w-auto max-w-[24rem] rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
+                        <div className="col-start-7 col-span-4 row-start-2 row-span-1 p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 align-center bg-white">
                             <HeaderCards svg={ComputerCodeIcon} title="Technos préférées" />
                             <ul className="gap-6 flex flex-col">
                                 <KeyPoints li="Laravel" />
