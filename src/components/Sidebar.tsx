@@ -10,6 +10,7 @@ function Sidebar() {
     const isClasses = useMatch('/classes') ? true : false;
     const isTeachers = useMatch('/teachers') ? true : false;
     const isSettings = useMatch('/settings') ? true : false;
+    const isLogin = useMatch('/login') ? true : false;
 
     const [sidebarOpen, setSidebarOpen] = useState(true)
 
@@ -72,7 +73,11 @@ function Sidebar() {
                     </Link>
                 </div>
                 <div>
-                    <LogoutButton/>
+                    <Link to="login">
+                        <SidebarButton text="Déconnexion" active={isLogin} sidebarIsOpen={sidebarOpen}>
+                            <LogoutButton />
+                        </SidebarButton>
+                    </Link>
                 </div>
 
             </div>

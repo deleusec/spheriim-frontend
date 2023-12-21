@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-import SidebarButton from './SidebarButton'; 
 import { ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 
 const LogoutButton = () => {
@@ -18,9 +17,7 @@ const LogoutButton = () => {
 
     return (
         <div onClick={handleLogout}>
-            <SidebarButton text="Déconnexion" sidebarIsOpen={true}>
                 <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
-            </SidebarButton>
         </div>
     );
 };
