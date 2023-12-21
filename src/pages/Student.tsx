@@ -3,7 +3,6 @@ import LinksList from "../components/LinksList.tsx";
 import StudentBio from "../components/StudentBio.tsx";
 import SchoolCard from "../components/SchoolCard.tsx";
 import CareerCard from "../components/CareerCard.tsx";
-import HeaderCards from "../components/HeaderCards";
 import KeyPoints from "../components/KeyPoints";
 
 import ListIcon from "../assets/icons/list.svg"

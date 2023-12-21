@@ -1,7 +1,16 @@
 import HeaderCards from './HeaderCards';
 import LinkIcon from '../assets/icons/link.svg';
 
-function LinksList(props: { links?: object[]}) {
+interface LinksListProps {
+    links?: LinksProps[];
+}
+
+interface LinksProps {
+    name: string;
+    url: string
+}
+
+function LinksList(props: LinksListProps) {
 
     const { links} = props;
 
@@ -10,7 +19,7 @@ function LinksList(props: { links?: object[]}) {
             <HeaderCards svg={LinkIcon} title="Liens" />
             <div>
                 <ul className="flex flex-col gap-4 text-sm">
-                    {links.map((link, index) => (
+                    {links?.map((link, index) => (
                         <li key={index} >
                             <span className="text-primary capitalize">{link.name} : </span>
                             <a href={link.url} target="_blank" className="text-black border-b-[1px] border-black"> {link.url}</a>

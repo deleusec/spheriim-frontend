@@ -9,6 +9,7 @@ import HeadTitles from '../components/HeadTitles'
 import getSupabase from "../database/supabase.ts";
 
 import ProfileImageDefault from '../assets/images/user-profile.jpg';
+import { Student } from '../types/Students.type.ts'
 
 const studentTableName = 'spheriim_student';
 
@@ -18,10 +19,11 @@ const Students: React.FC = () => {
   const [quickFilterText, setQuickFilterText] = useState('')
   const navigate = useNavigate()
 
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
+    const [data, setData] = useState({});
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     useEffect(() => {
+      
         const fetchData = async () => {
             try {
                 const { data, error } = await getSupabase()
@@ -30,12 +32,14 @@ const Students: React.FC = () => {
                         `*, class:class_id(*)`
                     );
                 if (error) {
-                    setError(error.message);
+                    setErrorMessage(error.message);
                 } else {
                     setData(data);
                 }
-            } catch (error) {
-                setError(error.message);
+            } catch (error: any ) {
+                setErrorMessage(error.message);
+                console.log(errorMessage);
+                
             }
         };
 
@@ -163,7 +167,7 @@ const Students: React.FC = () => {
         </div>
         <AgGridReact
           columnDefs={columnDefs}
-          rowData={data}
+          rowData={data as Student[]}
           defaultColDef={defaultColDef}
           quickFilterText={quickFilterText}
           rowHeight={rowHeight}
