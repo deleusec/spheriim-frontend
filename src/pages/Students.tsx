@@ -6,16 +6,13 @@ import { ColDef } from 'ag-grid-community'
 import { useNavigate } from 'react-router-dom'
 import HeadTitles from '../components/HeadTitles'
 
-import { createClient } from '@supabase/supabase-js';
+import getSupabase from "../database/supabase.ts";
 
 import ProfileImageDefault from '../assets/images/user-profile.jpg';
 
-const supabaseUrl = 'https://lkhayewnehhxhqkckehs.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxraGF5ZXduZWhoeGhxa2NrZWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI4OTc5NTMsImV4cCI6MjAxODQ3Mzk1M30.fKfRK_Dmx4KZ39za2coUrQGBbLJkrCbK_YIKEBbEQ6U';
 const studentTableName = 'spheriim_student';
-const classTableName = 'spheriim_class';
-const supabase = createClient(supabaseUrl, supabaseKey);
 
+getSupabase();
 const Students: React.FC = () => {
   //State
   const [quickFilterText, setQuickFilterText] = useState('')
@@ -27,7 +24,7 @@ const Students: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data, error } = await supabase
+                const { data, error } = await getSupabase()
                     .from(studentTableName)
                     .select(
                         `*, class:class_id(*)`
