@@ -1,6 +1,6 @@
 import { CalendarDaysIcon } from '@heroicons/react/24/solid';
 
-function CareerContent(props: { logo: string; title: string; job: string; jobPosition: string; dateStart: string; dateEnd?: string; description?: string; }) {
+function CareerContent(props: { logo: string; title: string; job: string; jobPosition?: string; dateStart: string; dateEnd?: string; description?: string; }) {
     const { logo, title, job, jobPosition, dateStart, dateEnd, description } = props;
 
     const dateEndDisplay = dateEnd ? dateEnd : "en cours...";

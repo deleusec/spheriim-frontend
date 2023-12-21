@@ -1,4 +1,4 @@
-function HeaderCards(props: { svg: string, title: string }) {
+function HeaderCards(props: { svg: string|undefined, title: string|undefined; }) {
 
     const { svg, title } = props;
 
