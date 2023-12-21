@@ -85,7 +85,7 @@ function Sidebar() {
                 </div>
                 <div>
                     <Link to="login">
-                        <SidebarButton text="Déconnexion" active={isLogin} sidebarIsOpen={sidebarOpen} onClick={handleLogout} >
+                        <SidebarButton text="Déconnexion" active={false} sidebarIsOpen={sidebarOpen} onClick={handleLogout} >
                         <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
                         </SidebarButton>
                     </Link>
