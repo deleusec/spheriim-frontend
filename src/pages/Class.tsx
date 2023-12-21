@@ -13,7 +13,7 @@ function Class() {
     return (
         <>
             <ClassInfo/>
-            <div className="grid grid-cols-10 auto-rows-auto gap-5 px-5">
+            <div className="grid grid-cols-10 auto-rows-auto gap-5 px-8">
                 <div className="flex col-start-1 col-span-5 row-start-1 row-span-1 h-full w-full">
                     <NextLesson/>
                 </div>
@@ -22,7 +22,7 @@ function Class() {
                     <p className="absolute text-5xl text-primary" style={{ top: '47%' }}>{NewStudents}</p>
                 </div>
             </div>
-            <div className="m-5">
+            <div className="mt-10">
                 <Students/>
             </div>
         </>
