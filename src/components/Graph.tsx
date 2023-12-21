@@ -10,11 +10,11 @@ export const data = {
   datasets: [
     {
       label: '# of Votes',
-      data: [45, 55],
+      data: [55, 45],
       layout: 20,
       backgroundColor: [
-        'rgba(240, 125, 0)',
         'rgba(240, 125, 0, 0.2)',
+        'rgba(240, 125, 0)',
       ],
       borderWidth: 0, 
     },
