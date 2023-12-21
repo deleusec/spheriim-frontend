@@ -19,6 +19,7 @@
     "@fullcalendar/daygrid": "^6.1.10",
     "@fullcalendar/react": "^6.1.10",
     "@heroicons/react": "^2.1.1",
+    "@types/chart.js": "^2.9.41",
     "@supabase/supabase-js": "^2.39.1",
     "ag-grid-community": "^31.0.1",
     "ag-grid-react": "^31.0.1",

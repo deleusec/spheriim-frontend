@@ -1,15 +1,32 @@
 import CareerContent from "./CareerContent.tsx";
 import HeaderCards from "./HeaderCards.tsx";
 import BriefCaseIcon from "../assets/icons/briefcase.svg";
+import BuildingIcon from "../assets/icons/building_icon.svg";
 
-function CareerCard() {
+interface CareerCardProps {
+    experiences?: ExperiencesProps[];
+}
+
+interface ExperiencesProps {
+    logo?: string;
+    title: string;
+    job_position: string;
+    job: string;
+    start_year: string;
+    end_year?: string;
+    description?: string
+}
+
+function CareerCard(props: CareerCardProps) {
+    const { experiences } = props;
+
     return (
         <div className="p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
             <HeaderCards svg={BriefCaseIcon} title="Expérience"/>
             <div className="flex flex-col justify-start gap-4">
-                <CareerContent logo="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a6/Cr%C3%A9dit_Agricole.svg/1200px-Cr%C3%A9dit_Agricole.svg.png" title="Crédit Agricole" job="Alternante Développeuse Fullstack" dateStart="septembre 2023" description="Maintenance de l’application web et ajout de nouvelles fonctionnalités" />
-                <CareerContent logo="https://assets-global.website-files.com/5fbfbca2132839a6a22e1ecc/646d20fa4680b40142e2dc5d_weweb.png" title="WeWeb" job="Stagiaire Développeuse Front-end" dateStart="mai 2023" dateEnd="août 2023" description="Implémentation de maquette et création de site vitrine" />
-                <CareerContent logo="data:image/png;base64,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" title="Devved" job="Freelance Développeuse Back-end" dateStart="mars 2022" dateEnd="mars 2022" description="Mis en place d’un Back Office" />
+                {experiences?.map((experience, index) => (
+                    <CareerContent key={index} logo={experience.logo ? experience.logo : BuildingIcon} title={experience.title} jobPosition={experience.job_position} job={experience.job} dateStart={experience.start_year} dateEnd={experience.end_year} description={experience.description} />
+                ))}
             </div>
         </div>
     );

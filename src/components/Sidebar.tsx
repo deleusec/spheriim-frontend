@@ -1,18 +1,30 @@
 import { useState } from "react";
-import { Link, useMatch } from "react-router-dom";
+import { Link, useMatch, useNavigate } from "react-router-dom";
 import SidebarButton from "./SidebarButton";
-import { HomeIcon, AcademicCapIcon, UsersIcon, BriefcaseIcon, Cog6ToothIcon, ArrowRightStartOnRectangleIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, AcademicCapIcon, UsersIcon, BriefcaseIcon, Cog6ToothIcon, ChevronRightIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
+import { useUser } from "../context/UserContext";
 
 function Sidebar() {
+    
+    const navigate = useNavigate();
+    const { setIsAuthenticated } = useUser()
+
     const isHome = useMatch('/') ? true : false;
     const isStudents = useMatch('/students') ? true : false;
     const isClasses = useMatch('/classes') ? true : false;
     const isTeachers = useMatch('/teachers') ? true : false;
     const isSettings = useMatch('/settings') ? true : false;
-    const isLogin = useMatch('/login') ? true : false;
 
     const [sidebarOpen, setSidebarOpen] = useState(true)
 
+    const handleLogout = () => {
+        setIsAuthenticated(false);
+
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('userEmail'); 
+        localStorage.removeItem('userPassword');
+        navigate('/login');
+    };
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen)
@@ -73,8 +85,8 @@ function Sidebar() {
                 </div>
                 <div>
                     <Link to="login">
-                        <SidebarButton text="Déconnexion" active={isLogin} sidebarIsOpen={sidebarOpen}>
-                            <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
+                        <SidebarButton text="Déconnexion" active={false} sidebarIsOpen={sidebarOpen} onClick={handleLogout} >
+                        <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
                         </SidebarButton>
                     </Link>
                 </div>
