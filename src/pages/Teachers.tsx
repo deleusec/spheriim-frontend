@@ -26,7 +26,7 @@ const Teachers: React.FC = () => {
       field: "name",
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
-          <img src={params.data.profilePic} className="w-12 h-12 rounded-full mr-3" alt="Profile" />
+          <img src={params.data.profilePic} className="w-16 h-16 rounded-full mr-3" alt="Profile" />
           <span>{params.value}</span>
         </div>
       ),
@@ -39,11 +39,23 @@ const Teachers: React.FC = () => {
     },
     { headerName: "Mail",
       field: "email",
+      cellRenderer: (params: any) => (
+        <a href={`mailto:${params.value}`} style={{
+          color: '#F07D00', 
+          textDecoration: 'underline',
+        }}>
+          {params.value}
+        </a>
+      ),
       cellStyle: centerStyle,
     },
-    { headerName: "Année de début",
-      field: "startYear", 
-      cellStyle: centerStyle, 
+    {
+      headerName: "Année de début",
+      field: "startYear",
+      cellRenderer: (params: any) => (
+        <span style={{ fontWeight: 'bold' }}>{params.value}</span>
+      ),
+      cellStyle: centerStyle,
     },
   ]
 
