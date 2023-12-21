@@ -33,8 +33,8 @@ const Students: React.FC = () => {
   const onRowClicked = useCallback(
      (event: any) => {
          // Naviguez ou effectuez d'autres actions si nécessaire
-         redirectToStudent(event.data.id, event.data);
-         console.log(event.data);
+         redirectToStudent(event.data.id, event.data)
+         console.log(event.data)
      },
      [navigate]
   );
