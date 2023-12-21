@@ -12,7 +12,6 @@ import ProfileImageDefault from '../assets/images/user-profile.jpg';
 
 const supabaseUrl = 'https://lkhayewnehhxhqkckehs.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxraGF5ZXduZWhoeGhxa2NrZWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI4OTc5NTMsImV4cCI6MjAxODQ3Mzk1M30.fKfRK_Dmx4KZ39za2coUrQGBbLJkrCbK_YIKEBbEQ6U';
-const tableName = 'spheriim_student';
 const studentTableName = 'spheriim_student';
 const classTableName = 'spheriim_class';
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -75,8 +74,6 @@ const Students: React.FC = () => {
     return { cursor: 'pointer' }
   }, []);
 
-    const profilePicDisplay = data.profilePic ? data.profilePic : ProfileImageDefault ;
-
     //Ag-Grid
   const columnDefs: ColDef[] = [
     {
@@ -84,7 +81,7 @@ const Students: React.FC = () => {
       field: "name",
       cellRenderer: (params: any) => (
         <div style={{ ...centerStyle, display: 'flex' }}>
-          <img src={profilePicDisplay} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
+          <img src={ params.data.picture ? params.data.picture : ProfileImageDefault } className="w-16 h-16 rounded-full mr-4" alt="Profile" />
           <span>{params.value} {params.data.firstname}</span>
         </div>
       ),
