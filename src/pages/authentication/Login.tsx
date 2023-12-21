@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import getSupabase from "../../database/supabase";
+import { useUser } from "../../context/UserContext";
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setIsAuthenticated } = useUser()
+    const navigate = useNavigate()
 
     const handleLogin = async () => {
         const { data, error } = await getSupabase().auth.signInWithPassword({
@@ -17,6 +20,9 @@ function Login() {
             console.error('Error signing in:', error.message);
         } else {
             console.log('User signed in successfully:', data);
+            setIsAuthenticated(true)
+            localStorage.setItem('isAuthenticated', 'true')
+            navigate('/')
             // Redirect to the dashboard or any other page
         } 
     };
