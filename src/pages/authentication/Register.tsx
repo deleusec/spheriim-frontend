@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import getSupabase from "../../database/supabase";
+import { useUser } from '../../context/UserContext'
 
 function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('');
+    const { setIsAuthenticated } = useUser()
+    const navigate = useNavigate()
 
     const handleSignup = async () => {
         if (password !== confirmPassword) {
@@ -20,8 +23,11 @@ function Register() {
             }
             // Handle successful signup
             console.log('User signed up:', data);
+            setIsAuthenticated(true)
+            localStorage.setItem('isAuthenticated', 'true')
+            navigate('/')
         } catch (error) {
-            console.log('Error signing up:', error);
+            console.log('Error signing up:', error)
         }
 
     }
@@ -54,7 +60,7 @@ function Register() {
                     <p className="text-red-500 text-sm h-2">{error}</p>
                 </div>
                 <div>
-                    <button onClick={handleSignup} className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-light focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary" type="submit">Login</button>
+                    <button onClick={handleSignup} className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-light focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary" type="submit">Sign Up</button>
                 </div>
                 <div>
                     <Link to={"/login"} className="font-light text-primary hover:text-primary-light">Déjà inscrit ?</Link>
