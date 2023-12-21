@@ -1,16 +1,5 @@
 # Sécurité
 
-## Versions prises en charge
-
-Utilisez cette section pour informer les utilisateurs des versions actuelles de votre projet encore prises en charge par des mises à jour de sécurité.
-
-| Version | Prise en charge |
-|---|---|
-| 5.1.x | Oui |
-| 5.0.x | Non |
-| 4.0.x | Oui |
-| Pré-4.0 | Non |
-
 ## Signalement d'une vulnérabilité
 
 Utilisez cette section pour informer les utilisateurs de la manière de signaler une vulnérabilité.
