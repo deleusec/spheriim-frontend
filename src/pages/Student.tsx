@@ -21,7 +21,7 @@ function Student() {
                 <StudentInfo profilePic={studentData?.profilePic} firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={studentData?.class.name}  startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
                 <div className="grid grid-cols-9 auto-rows-auto gap-5 p-8">
                     <div className="flex col-start-1 col-span-4 row-start-1 row-span-1 h-full w-full">
-                        <LinksList github={studentData?.github} linkedin={studentData?.linkedin} portfolio={studentData?.porfolio} />
+                        <LinksList links={studentData?.links} />
                     </div>
                     <div className="flex col-start-5 col-span-6 row-start-1 row-span-1 h-full w-full">
                         <StudentBio bio={studentData?.project_description} />

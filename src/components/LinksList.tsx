@@ -1,27 +1,21 @@
 import HeaderCards from './HeaderCards';
 import LinkIcon from '../assets/icons/link.svg';
 
-function LinksList(props: { github: string, linkedin: string, portfolio: string, cv?: string }) {
+function LinksList(props: { links?: object[]}) {
 
-    const { github, linkedin, portfolio, cv } = props;
+    const { links} = props;
 
     return (
         <div className=" p-[16px] w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
             <HeaderCards svg={LinkIcon} title="Liens" />
             <div>
                 <ul className="flex flex-col gap-4 text-sm">
-                    <li className="text-primary">
-                        Github : <a href={`https://github/${github}`} target="_blank" className="text-black border-b-[1px] border-black">{github}</a>
-                    </li>
-                    <li className="text-primary">
-                        Linkedin : <a href={linkedin} target="_blank" className="text-black border-b-[1px] border-black">{linkedin}</a>
-                    </li>
-                    <li className="text-primary">
-                        Portfolio : <a href={portfolio} target="_blank" className="text-black border-b-[1px] border-black">{portfolio}</a>
-                    </li>
-                    <li className="text-primary">
-                        CV : <a href={cv} target="_blank" className="text-black border-b-[1px] border-black">Cliquer ici</a>
-                    </li>
+                    {links.map((link, index) => (
+                        <li key={index} >
+                            <span className="text-primary capitalize">{link.name} : </span>
+                            <a href={link.url} target="_blank" className="text-black border-b-[1px] border-black"> {link.url}</a>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>
