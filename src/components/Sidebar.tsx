@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useMatch } from "react-router-dom";
 import SidebarButton from "./SidebarButton";
-import { HomeIcon, AcademicCapIcon, UsersIcon, BriefcaseIcon, Cog6ToothIcon, ArrowRightStartOnRectangleIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { HomeIcon, AcademicCapIcon, UsersIcon, BriefcaseIcon, Cog6ToothIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import LogoutButton from "./Logout";
 
 function Sidebar() {
     const isHome = useMatch('/') ? true : false;
@@ -9,7 +10,6 @@ function Sidebar() {
     const isClasses = useMatch('/classes') ? true : false;
     const isTeachers = useMatch('/teachers') ? true : false;
     const isSettings = useMatch('/settings') ? true : false;
-    const isLogin = useMatch('/login') ? true : false;
 
     const [sidebarOpen, setSidebarOpen] = useState(true)
 
@@ -72,11 +72,7 @@ function Sidebar() {
                     </Link>
                 </div>
                 <div>
-                    <Link to="login">
-                        <SidebarButton text="Déconnexion" active={isLogin} sidebarIsOpen={sidebarOpen}>
-                            <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
-                        </SidebarButton>
-                    </Link>
+                    <LogoutButton/>
                 </div>
 
             </div>
