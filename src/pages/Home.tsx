@@ -1,8 +1,12 @@
+import ListingHeader from "../components/HeadTitles"
+import Calendar from "./Calendar";
+
 function Home() {
     return (
-        <>
-            <h1>Accueil</h1>
-        </>
+        <div>
+            <ListingHeader title="Accueil" subtitle="Bienvenue sur SpherIIM" />
+            <Calendar />
+        </div>
     );
 }
 
