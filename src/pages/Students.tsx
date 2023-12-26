@@ -167,7 +167,7 @@ const Students: React.FC = () => {
         </div>
         <AgGridReact
           columnDefs={columnDefs}
-          rowData={data as Student[]}
+          rowData={data ? Object.values(data) : []}
           defaultColDef={defaultColDef}
           quickFilterText={quickFilterText}
           rowHeight={rowHeight}
