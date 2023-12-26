@@ -9,8 +9,6 @@ import HeadTitles from '../components/HeadTitles'
 import getSupabase from "../database/supabase.ts";
 
 import ProfileImageDefault from '../assets/images/user-profile.jpg';
-import { Student } from '../types/Students.type.ts'
-
 const studentTableName = 'spheriim_student';
 
 getSupabase();
