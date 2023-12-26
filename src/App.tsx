@@ -18,21 +18,21 @@ function App() {
     return (
         <>
             <UserProvider>
-            <Routes>
-                <Route path="/" element={<DashboardLayout />} >
-                <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-                    <Route path="/students" element={<ProtectedRoute><Students /></ProtectedRoute>} />
-                    <Route path="/students/:id" element={<ProtectedRoute><Student /></ProtectedRoute>} />
-                    <Route path="/classes" element={<ProtectedRoute><Classes /></ProtectedRoute>} />
-                    <Route path="/classes/:id" element={<ProtectedRoute><Class /></ProtectedRoute>} />
-                    <Route path="/teachers" element={<ProtectedRoute><Teachers /></ProtectedRoute>} />
-                    <Route path="/teachers/:id" element={<ProtectedRoute><Teacher /></ProtectedRoute>} />
-                    <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-                </Route>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="*" element={<ErrorPage />} />
-            </Routes>
+                <Routes>
+                    <Route path="/" element={<DashboardLayout />} >
+                        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                        <Route path="/students" element={<ProtectedRoute><Students /></ProtectedRoute>} />
+                        <Route path="/students/:id" element={<ProtectedRoute><Student /></ProtectedRoute>} />
+                        <Route path="/classes" element={<ProtectedRoute><Classes /></ProtectedRoute>} />
+                        <Route path="/classes/:id" element={<ProtectedRoute><Class /></ProtectedRoute>} />
+                        <Route path="/teachers" element={<ProtectedRoute><Teachers /></ProtectedRoute>} />
+                        <Route path="/teachers/:id" element={<ProtectedRoute><Teacher /></ProtectedRoute>} />
+                        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+                    </Route>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="*" element={<ErrorPage />} />
+                </Routes>
             </UserProvider>
         </>
     );

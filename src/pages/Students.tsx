@@ -9,8 +9,6 @@ import HeadTitles from '../components/HeadTitles'
 import getSupabase from "../database/supabase.ts";
 
 import ProfileImageDefault from '../assets/images/user-profile.jpg';
-import { Student } from '../types/Students.type.ts'
-
 const studentTableName = 'spheriim_student';
 
 getSupabase();
@@ -167,7 +165,7 @@ const Students: React.FC = () => {
         </div>
         <AgGridReact
           columnDefs={columnDefs}
-          rowData={data as Student[]}
+          rowData={data ? Object.values(data) : []}
           defaultColDef={defaultColDef}
           quickFilterText={quickFilterText}
           rowHeight={rowHeight}
