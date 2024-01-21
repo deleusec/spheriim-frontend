@@ -1,14 +1,11 @@
 import HeaderCards from "./HeaderCards.tsx";
 
 interface KeyPointsProps {
-    technos?: TechnosProps[];
+    technos?: string[];
     svg?: string | undefined;
     title?: string| undefined;
 }
 
-interface TechnosProps {
-    name: string;
-}
 function KeyPoints(props: KeyPointsProps) {
     const { technos, svg, title } = props;
     console.log(technos);
@@ -20,7 +17,7 @@ function KeyPoints(props: KeyPointsProps) {
             <div className="gap-16 flex max-h-96 h-full px-4">
                 <ul className="gap-4 grid grid-cols-2 auto-rows-min w-full">
                     {technos?.map((techno, index) => (
-                        <li key={index} className="text-primary list-disc ml-4">{techno}</li>
+                        <li key={index} className="text-primary list-disc ml-4">{techno.toString()}</li>
                     ))}
                 </ul>
             </div>
