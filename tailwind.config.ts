@@ -8,10 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        'primary': '#F07D00',
+        'primary-light': '#F1B575',
+        'secondary': '#F07D00',
+        'dark': '#636466',
+        'light': '#E9EAE9',
+        'light-background': '#F3F3F3',
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+      },
+      boxShadow: {
+        'cards': '1px 4px 7px 0px rgba(233, 234, 233, 1)',
       },
     },
   },
