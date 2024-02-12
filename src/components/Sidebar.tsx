@@ -27,7 +27,7 @@ export default function Sidebar() {
                 <ChevronRightIcon className={`w-4 h-4 text-light-background ${sidebarOpen ? "rotate-180" : "rotate-0"} duration-200`} />
             </div>
             <div className="mb-10">
-                {sidebarOpen ? <Link className="font-bold text-3xl" href="/">Spher<span className="bg-gradient-to-b from-primary to-primary-light inline-block text-transparent bg-clip-text">IIM</span></Link>
+                {sidebarOpen ? <Link className="font-bold text-3xl" href="/home">Spher<span className="bg-gradient-to-b from-primary to-primary-light inline-block text-transparent bg-clip-text">IIM</span></Link>
                     : <Link className="font-bold text-3xl" href="/"><Image src="/spheriim.svg" width={40} height={40} alt="Spheriim logo" className="w-10" /></Link>}
             </div>
             <nav>
