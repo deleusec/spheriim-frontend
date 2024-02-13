@@ -8,7 +8,7 @@ function CareerContent(props: { logo: string; title: string; job: string; jobPos
     return (
         <div className="flex items-center gap-6 w-full px-5">
             <div className="w-1/4 max-w-[40px]">
-                <Image width={40} height={40} className="w-full object-contain" src={logo} alt="logo company" />
+                <Image width={200} height={200} src={logo} alt="temp" />
             </div>
             <div className="flex flex-col gap-1">
                 <h4 className="text-primary text-lg mb-2 font-medium">{title}</h4>

@@ -1,5 +1,5 @@
 import HeaderCards from './HeaderCards';
-import LinkIcon from '../assets/icons/link.svg';
+import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
 
 interface LinksListProps {
     links?: LinksProps[];
@@ -16,7 +16,7 @@ function LinksList(props: LinksListProps) {
 
     return (
         <div className=" p-[16px] w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
-            <HeaderCards svg={LinkIcon} title="Liens" />
+            <HeaderCards svg={<LinkIcon className='w-[18px] h-[18px] text-white'/>} title="Liens" />
             <div>
                 <ul className="flex flex-col gap-4 text-sm">
                     {links?.map((link, index) => (
