@@ -77,7 +77,7 @@ export default function Students() {
             field: "name",
             cellRenderer: (params: any) => (
                 <div style={{ ...centerStyle, display: 'flex' }}>
-                    <Image src={params.data.picture ? params.data.picture : ProfileImageDefault} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
+                    <Image width={64} height={64} src={params.data.picture ? params.data.picture : ProfileImageDefault} className="w-16 h-16 rounded-full mr-4" alt="Profile" />
                     <span>{params.value} {params.data.firstname}</span>
                 </div>
             ),

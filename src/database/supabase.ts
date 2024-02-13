@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
 function getSupabase() {
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-  const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+  // Get env variables
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY as string;
   const supabase = createClient(supabaseUrl, supabaseKey);
   return supabase;
 }
