@@ -1,14 +1,3 @@
-import StudentInfo from "@/components/StudentInfo";
-import LinksList from "@/components/LinksList";
-import StudentBio from "@/components/StudentBio";
-import SchoolCard from "@/components/SchoolCard";
-import CareerCard from "@/components/CareerCard";
-import KeyPoints from "@/components/KeyPoints";
-
-import ListIcon from "../assets/icons/list.svg"
-import ArrowTrendDownIcon from "../assets/icons/arrow-trend-down.svg"
-import ComputerCodeIcon from "../assets/icons/list.svg"
-import Image from "next/image";
 import { UserPlusIcon } from "@heroicons/react/16/solid";
 
 export default function AddStudent() {
@@ -40,12 +29,12 @@ export default function AddStudent() {
                         <div className="grid w-full auto-rows-auto grid-cols-2 gap-x-32 gap-y-8">
 
                             <div>
-                                <label htmlFor="name"><span className="text-primary">Nom</span> de l'étudiant</label>
+                                <label htmlFor="name"><span className="text-primary">Nom</span> de l&apos;étudiant</label>
                                 <input type="text" name="name" id="name" placeholder="Nom..." />
                             </div>
 
                             <div>
-                                <label htmlFor="firstname"><span className="text-primary">Prénom</span> de l'étudiant</label>
+                                <label htmlFor="firstname"><span className="text-primary">Prénom</span> de l&apos;étudiant</label>
                                 <input type="text" name="firstname" id="firstname" placeholder="Prénom..." />
                             </div>
 
@@ -60,7 +49,7 @@ export default function AddStudent() {
                             </div>
 
                             <div>
-                                <label htmlFor="year-select"><span className="text-primary">Année</span> de l'étudiant</label>
+                                <label htmlFor="year-select"><span className="text-primary">Année</span> de l&apos;étudiant</label>
                                 <select name="years" id="year-select">
                                     <option value="" className="text-gray-900">--Choisir Année--</option>
                                     <option value="a1">A1</option>
@@ -85,7 +74,7 @@ export default function AddStudent() {
                             </div>
 
                             <div>
-                                <label htmlFor="start-year-select"><span className="text-primary">Année de début</span> de l'étudiant</label>
+                                <label htmlFor="start-year-select"><span className="text-primary">Année de début</span> de l&apos;étudiant</label>
                                 <select name="start-years" id="start-year-select">
                                     <option value="" className="text-gray-900">--Choisir Année de début--</option>
                                     <option value="start-a1">A1</option>
@@ -97,7 +86,7 @@ export default function AddStudent() {
                             </div>
 
                             <div>
-                                <label htmlFor="start-year-select"><span className="text-primary">Statut</span> de l'étudiant</label>
+                                <label htmlFor="start-year-select"><span className="text-primary">Statut</span> de l&apos;étudiant</label>
                                 <select name="start-years" id="start-year-select">
                                     <option value="" className="text-gray-900">--Choisir Statut--</option>
                                     <option value="initial">en Initial</option>
@@ -133,9 +122,9 @@ export default function AddStudent() {
                     </div>
 
                     <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
-                        <h3 className="text-primary">Projet d'avenir</h3>
+                        <h3 className="text-primary">Projet d&apos;avenir</h3>
                         <div>
-                            <textarea id="future-project" name="future-project" rows="3" cols="50" placeholder="Texte..."/>
+                            <textarea id="future-project" name="future-project" rows={3} cols={50} placeholder="Texte..."/>
                         </div>
                     </div>
 
