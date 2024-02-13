@@ -7,7 +7,6 @@ interface CareerCardProps {
 }
 
 interface ExperiencesProps {
-    logo?: string;
     title: string;
     job_position: string;
     job: string;
@@ -24,7 +23,7 @@ function CareerCard(props: CareerCardProps) {
             <HeaderCards svg={<BriefcaseIcon className="w-[18px] h-[18px] text-white"/>} title="Expérience"/>
             <div className="flex flex-col justify-start gap-4">
                 {experiences?.map((experience, index) => (
-                    <CareerContent key={index} logo={experience.logo ? experience.logo : <BuildingOffice2Icon className="w-[18px] h-[18px] text-white"/>} title={experience.title} jobPosition={experience.job_position} job={experience.job} dateStart={experience.start_year} dateEnd={experience.end_year} description={experience.description} />
+                    <CareerContent key={index} logo={<BuildingOffice2Icon className="w-[18px] h-[18px] text-white"/>} title={experience.title} jobPosition={experience.job_position} job={experience.job} dateStart={experience.start_year} dateEnd={experience.end_year} description={experience.description} />
                 ))}
             </div>
         </div>
