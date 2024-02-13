@@ -63,13 +63,9 @@ export default function Students() {
         router.push(`/students/${id}`);
     };
 
-    const onRowClicked = useCallback(
-        (event: any) => {
-            // Naviguez ou effectuez d'autres actions si nécessaire
-            redirectToStudent(event.data.id);
-        },
-        []
-    );
+    const onRowClicked = (event: any) => {
+        redirectToStudent(event.data.id);
+    }
 
     const getRowStyle = useCallback(() => {
         return { cursor: 'pointer' }

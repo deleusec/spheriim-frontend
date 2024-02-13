@@ -4,7 +4,7 @@ import { useState } from "react";
 import Card from "@/components/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl, faCaretRight } from '@fortawesome/free-solid-svg-icons';
-
+import { useRouter } from "next/navigation";
 
 const tabData = [
   {
@@ -73,37 +73,42 @@ const tabData = [
 
 export default function Classes() {
   const [activeTab, setActiveTab] = useState('communication');
+  const router = useRouter();
 
   const handleTabClick = (tabId:string) => {
     setActiveTab(tabId);
   };
+
+  const redirectToClass = (id: number, section: string) => {
+    router.push(`/classes/${section}/${id}`);
+  }
 
   return (
     <div>
       <HeadTitles title='Nos classes' subtitle='Découvrez toutes les classes de l’IIM' />
       <div className='p-8'>
         <Card className='flex w-full justify-between'>
-          <ul className="h-max border-2 w-2/4">
+          <ul className="h-max border w-2/4">
             {tabData.map(tab => (
               <li
                 key={tab.id}
-                className={`p-6 border-b-2 hover:bg-primary hover:text-white relative ${activeTab === tab.id ? 'bg-primary text-white' : ''}`}
+                className={`p-6 border-b hover:bg-primary hover:text-white relative ${activeTab === tab.id ? 'bg-primary text-white' : ''}`}
                 onClick={() => handleTabClick(tab.id)}
               >
-                <a href="#" className="flex items-center">
+                <p className="flex items-center">
                   <FontAwesomeIcon icon={tab.icon} className="pr-3 text-2xl"/>
                   {tab.title}
-                </a>
+                </p>
                 {activeTab === tab.id ? <FontAwesomeIcon icon={faCaretRight} className="absolute right-[-2px] bottom-1/2 text-4xl text-primary translate-x-1/2 translate-y-1/2" /> : ''}
               </li>
             ))}
           </ul>
-          <div className="classes w-2/4 border-y-2 border-r-2">
+          <div className="classes w-2/4 border-y border-r ">
             {tabData.map(tab => (
-              <ul key={tab.id} className={`${tab.id} ${activeTab === tab.id ? '' : 'hidden'}`}>
+              <ul key={tab.id} className={`last:border-b-0 ${tab.id} ${activeTab === tab.id ? '' : 'hidden'}`}>
                 {tab.children.map((child, index) => (
-                  <li key={index} className="p-6 border-b-2 list-none hover:bg-light-background">
-                    <a href="#">{child}</a>
+                  <li key={index} className="p-6 border-b list-none hover:bg-light-background" onClick={() => redirectToClass(index, tab.id)}>
+                    <p>{child}</p>
                   </li>
                 ))}
               </ul>
