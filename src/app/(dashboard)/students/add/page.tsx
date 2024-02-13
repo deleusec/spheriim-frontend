@@ -5,22 +5,25 @@ export default function AddStudent() {
     return (
         <section className="flex flex-col w-full">
             <section className="w-full flex justify-center items-center gap-12 p-6 bg-white">
-                <div className="w-1/6 max-w-[200px]">
+                <div className="w-1/6 max-w-[140px]">
                     <UserPlusIcon className="text-primary"/>
                 </div>
                 <div>
-                    <h1 className="text-xl lg:text-2xl text-primary font-medium">Ajout d&apos;étudiant</h1>
+                    <h1 className="text-2xl lg:text-4xl text-primary font-medium">Ajout d&apos;étudiant</h1>
                 </div>
             </section>
             <section className="flex flex-col items-center py-4">
-                <section className="grid w-full auto-rows-auto grid-cols-2 gap-x-16 gap-y-8 gap-8 px-32 py-6">
+                <section className="grid w-full auto-rows-auto grid-cols-2 gap-x-16 gap-y-8 gap-8 px-24 py-6">
                     <div className="col-span-full shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
                         <h3 className="text-primary">Informations globales</h3>
 
-                        <div>
-                            <label htmlFor="pic" className="rounded-full p-16 border-dashed border-2 ">+</label>
+                        <div className="flex gap-8 items-center justify-center">
+                            <label><span className="text-primary">Photo</span> de l&apos;étudiant</label>
+                            <div className="relative">
+                                <label htmlFor="pic" className="flex justify-center items-center rounded-full w-20 h-20 border-dashed border-2 text-4xl text-gray-400 bg-slate-100 cursor-pointer">+</label>
 
-                            <input type="file" id="pic" name="pic" accept="image/png, image/jpeg" />
+                                <input type="file" id="pic" name="pic" accept="image/png, image/jpeg" className="absolute opacity-0" />
+                            </div>
                         </div>
 
                         <div className="grid w-full auto-rows-auto grid-cols-2 gap-x-32 gap-y-8">
@@ -58,7 +61,8 @@ export default function AddStudent() {
                             </div>
 
                             <div>
-                                <label htmlFor="class-select">Classe de <span className="text-primary">l&apos;étudiant</span></label>
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                <label htmlFor="class-select">Classe de <span className="text-primary">l'étudiant</span></label>
                                 <select name="classes" id="class-select">
                                     <option value="" className="text-gray-900">--Choisir Classe--</option>
                                     <option value="fullstack">Fullstack</option>
@@ -73,11 +77,11 @@ export default function AddStudent() {
                                 <label htmlFor="start-year-select"><span className="text-primary">Année de début</span> de l&apos;étudiant</label>
                                 <select name="start-years" id="start-year-select">
                                     <option value="" className="text-gray-900">--Choisir Année de début--</option>
-                                    <option value="a1">A1</option>
-                                    <option value="a2">A2</option>
-                                    <option value="a3">A3</option>
-                                    <option value="a4">A4</option>
-                                    <option value="a5">A5</option>
+                                    <option value="start-a1">A1</option>
+                                    <option value="start-a2">A2</option>
+                                    <option value="start-a3">A3</option>
+                                    <option value="start-a4">A4</option>
+                                    <option value="start-a5">A5</option>
                                 </select>
                             </div>
 
@@ -105,6 +109,15 @@ export default function AddStudent() {
                                 <label htmlFor="linkPortfolio">Lien <span className="text-primary">Portfolio</span></label>
                                 <input type="text" name="linkPortfolio" id="linkPortfolio" placeholder="Lien Portfolio..." />
                             </div>
+
+                            <div className="flex flex-col">
+                                <label><span className="text-primary">CV</span> de l&apos;étudiant</label>
+                                <div className="relative">
+                                    <label htmlFor="cv" className="flex justify-center items-center rounded-md border-dashed border-2 w-24 text-3xl text-gray-400 bg-slate-100 cursor-pointer">+</label>
+
+                                    <input type="file" id="cv" name="cv" accept=".pdf" className="absolute opacity-0" />
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -112,6 +125,111 @@ export default function AddStudent() {
                         <h3 className="text-primary">Projet d&apos;avenir</h3>
                         <div>
                             <textarea id="future-project" name="future-project" rows={3} cols={50} placeholder="Texte..."/>
+                        </div>
+                    </div>
+
+                    <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
+                        <h3 className="text-primary">Compétences acquises</h3>
+
+                        <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
+                            <div>
+                                <input type="text" name="skill" id="skill" placeholder="Compétence..." />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
+                        <h3 className="text-primary">Axes d&apos;amélioration</h3>
+
+                        <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
+                            <div>
+                                <input type="text" name="cons" id="cons" placeholder="Axe d'amélioration.." />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
+                        <h3 className="text-primary">Technos préférés</h3>
+
+                        <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
+                            <div>
+                                <input type="text" name="pros" id="pros" placeholder="Techno..." />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
+                        <h3 className="text-primary">Parcours étudiant</h3>
+
+                        <div className="flex flex-col items-center justify-center gap-y-4">
+                            <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
+                                <div>
+                                    <label htmlFor="nameSchool">Nom de <span className="text-primary">l&apos;établissement</span></label>
+                                    <input type="text" name="nameSchool" id="nameSchool" placeholder="Établissement..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="level-studies"><span className="text-primary">Niveau</span> d&apos;étude</label>
+                                    <input type="text" name="level-studies" id="level-studies" placeholder="Niveau..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="start-month"><span className="text-primary">Début année</span> d&apos;étude</label>
+                                    <input type="month" name="start-month" id="start-month" placeholder="Indiquer Année..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="end-month"><span className="text-primary">Fin année</span> d&apos;étude</label>
+                                    <input type="month" name="end-month" id="end-month" placeholder="Indiquer Année..." />
+                                </div>
+                            </div>
+                            <hr className="w-3/4"/>
+                        </div>
+                    </div>
+
+                    <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
+                        <h3 className="text-primary">Expérience professionnelle</h3>
+
+                        <div className="flex flex-col items-center justify-center gap-y-4">
+                            <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
+                                <div>
+                                    <label htmlFor="nameCompany">Nom de <span className="text-primary">l&apos;entreprise</span></label>
+                                    <input type="text" name="nameCompany" id="nameCompany" placeholder="Entreprise..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="job"><span className="text-primary">Poste</span></label>
+                                    <input type="text" name="job" id="job" placeholder="Poste..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="start-month"><span className="text-primary">Début</span> du poste</label>
+                                    <input type="month" name="start-month" id="start-month" placeholder="Indiquer Année..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="end-month"><span className="text-primary">Fin</span> du poste</label>
+                                    <input type="month" name="end-month" id="end-month" placeholder="Indiquer Année..." />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="statut-job"><span className="text-primary">Statut</span> lors du poste</label>
+                                    <select name="jobPosition" id="statut-job">
+                                        <option value="" className="text-gray-900">--Choisir Statut--</option>
+                                        <option value="stagiaire">Stagiaire</option>
+                                        <option value="alternant">Alternant</option>
+                                        <option value="cdi">CDI</option>
+                                        <option value="cdd">CDD</option>
+                                        <option value="freelance">Freelance</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="desc-job"><span className="text-primary">Description</span> du poste</label>
+                                    <textarea id="desc-job" name="desc-job" rows={2} cols={50} placeholder="Texte..."/>
+                                </div>
+                            </div>
+                            <hr className="w-3/4"/>
                         </div>
                     </div>
 
