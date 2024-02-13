@@ -1,11 +1,31 @@
-interface TeacherProps {
-    params: { id: string };
-}
+import TeacherInfo from "@/components/TeacherInfo";
+import TeacherBio from "@/components/TeacherBio";
 
-export default function Teacher({ params } : TeacherProps ) {
-    console.log(params.id);
+
+const teacherTableName = 'spheriim_teacher';
+import getSupabase from "@/database/supabase";
+import LinksList from "@/components/LinksList";
+
+async function getData(id: number) {
+    const res = await getSupabase()
+        .from(teacherTableName)
+        .select('*')
+        .eq('id', id)
+        .single();
+        return res.data;
+  }
+
+export default async function Teacher({ params }: { params: { id: number } }) {
+    const teacherData = await getData(params.id as number);
     
     return (
-        <h1>Hello World</h1>
+        <section className="flex flex-col w-full">
+            <TeacherInfo firstname={teacherData?.firstname} name={teacherData?.name} mail={teacherData?.email} speciality={teacherData?.speciality} />
+            <div className="grid grid-cols-9 auto-rows-auto gap-5 p-8">
+                <div className="flex col-start-1 col-span-4 row-start-1 row-span-1 h-full w-full">
+                    <LinksList links={teacherData?.links} />
+                </div>
+            </div>
+        </section>
     );
 }
