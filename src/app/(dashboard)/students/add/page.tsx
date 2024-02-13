@@ -9,7 +9,7 @@ export default function AddStudent() {
                     <UserPlusIcon className="text-primary"/>
                 </div>
                 <div>
-                    <h1 className="text-2xl lg:text-4xl text-primary font-medium">Ajout d'étudiant</h1>
+                    <h1 className="text-2xl lg:text-4xl text-primary font-medium">Ajout d&apos;étudiant</h1>
                 </div>
             </section>
             <section className="flex flex-col items-center py-4">
@@ -18,7 +18,7 @@ export default function AddStudent() {
                         <h3 className="text-primary">Informations globales</h3>
 
                         <div className="flex gap-8 items-center justify-center">
-                            <label><span className="text-primary">Photo</span> de l'étudiant</label>
+                            <label><span className="text-primary">Photo</span> de l&apos;étudiant</label>
                             <div className="relative">
                                 <label htmlFor="pic" className="flex justify-center items-center rounded-full w-20 h-20 border-dashed border-2 text-4xl text-gray-400 bg-slate-100 cursor-pointer">+</label>
 
@@ -111,7 +111,7 @@ export default function AddStudent() {
                             </div>
 
                             <div className="flex flex-col">
-                                <label><span className="text-primary">CV</span> de l'étudiant</label>
+                                <label><span className="text-primary">CV</span> de l&apos;étudiant</label>
                                 <div className="relative">
                                     <label htmlFor="cv" className="flex justify-center items-center rounded-md border-dashed border-2 w-24 text-3xl text-gray-400 bg-slate-100 cursor-pointer">+</label>
 
@@ -139,7 +139,7 @@ export default function AddStudent() {
                     </div>
 
                     <div className="shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
-                        <h3 className="text-primary">Axes d'amélioration</h3>
+                        <h3 className="text-primary">Axes d&apos;amélioration</h3>
 
                         <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
                             <div>
@@ -164,22 +164,22 @@ export default function AddStudent() {
                         <div className="flex flex-col items-center justify-center gap-y-4">
                             <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
                                 <div>
-                                    <label htmlFor="nameSchool">Nom de <span className="text-primary">l'établissement</span></label>
+                                    <label htmlFor="nameSchool">Nom de <span className="text-primary">l&apos;établissement</span></label>
                                     <input type="text" name="nameSchool" id="nameSchool" placeholder="Établissement..." />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="level-studies"><span className="text-primary">Niveau</span> d'étude</label>
+                                    <label htmlFor="level-studies"><span className="text-primary">Niveau</span> d&apos;étude</label>
                                     <input type="text" name="level-studies" id="level-studies" placeholder="Niveau..." />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="start-month"><span className="text-primary">Début année</span> d'étude</label>
+                                    <label htmlFor="start-month"><span className="text-primary">Début année</span> d&apos;étude</label>
                                     <input type="month" name="start-month" id="start-month" placeholder="Indiquer Année..." />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="end-month"><span className="text-primary">Fin année</span> d'étude</label>
+                                    <label htmlFor="end-month"><span className="text-primary">Fin année</span> d&apos;étude</label>
                                     <input type="month" name="end-month" id="end-month" placeholder="Indiquer Année..." />
                                 </div>
                             </div>
@@ -193,7 +193,7 @@ export default function AddStudent() {
                         <div className="flex flex-col items-center justify-center gap-y-4">
                             <div className="grid w-full auto-rows-auto grid-cols-2 gap-8">
                                 <div>
-                                    <label htmlFor="nameCompany">Nom de <span className="text-primary">l'entreprise</span></label>
+                                    <label htmlFor="nameCompany">Nom de <span className="text-primary">l&apos;entreprise</span></label>
                                     <input type="text" name="nameCompany" id="nameCompany" placeholder="Entreprise..." />
                                 </div>
 
@@ -226,7 +226,7 @@ export default function AddStudent() {
 
                                 <div>
                                     <label htmlFor="desc-job"><span className="text-primary">Description</span> du poste</label>
-                                    <textarea id="desc-job" name="desc-job" rows="2" cols="50" placeholder="Texte..."/>
+                                    <textarea id="desc-job" name="desc-job" rows={2} cols={50} placeholder="Texte..."/>
                                 </div>
                             </div>
                             <hr className="w-3/4"/>
