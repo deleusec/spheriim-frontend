@@ -5,10 +5,11 @@ import StudentInfo from "@/components/StudentInfo";
 import SchoolCard from "@/components/SchoolCard";
 import CareerCard from "@/components/CareerCard";
 
-import { ListBulletIcon } from "@heroicons/react/24/outline";
+import { ListBulletIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const studentTableName = 'spheriim_student';
 import getSupabase from "@/database/supabase";
+import AppButton from "@/components/ui/AppButton";
 
 async function getData(id: number) {
     const res = await getSupabase()
@@ -25,6 +26,11 @@ export default async function Student({ params }: { params: { id: number } }) {
     return (
         <section className="flex flex-col w-full">
             <StudentInfo firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={"Hello"} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
+            <div className="flex justify-end w-full gap-10 items-center p-[40px] pb-0">
+                <AppButton color="red" icon={<XMarkIcon width={20}/>}>
+                    Supprimer la fiche étudiante
+                </AppButton>
+            </div>
             <div className="grid grid-cols-9 auto-rows-auto gap-5 p-8">
                 <div className="flex col-start-1 col-span-4 row-start-1 row-span-1 h-full w-full">
                     <LinksList links={studentData?.links} />
