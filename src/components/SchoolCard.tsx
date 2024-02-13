@@ -1,9 +1,9 @@
 import CareerContent from "./CareerContent";
 import HeaderCards from "./HeaderCards";
-import GraduationCapIcon from "../assets/icons/graduation-cap.svg";
+import { AcademicCapIcon, BuildingLibraryIcon } from "@heroicons/react/24/outline";
 import SchoolIcon from "../assets/icons/school_icon.svg";
 
-interface CareerCardProps {
+interface SchoolCardProps {
     studies: StudiesProps[];
 }
 
@@ -15,14 +15,14 @@ interface StudiesProps {
     end_year?: string;
 }
 
-function CareerCard(props: CareerCardProps) {
+function CareerCard(props: SchoolCardProps) {
     const { studies } = props;
     return (
         <div className="p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
-            <HeaderCards svg={GraduationCapIcon} title="Parcours"/>
+            <HeaderCards svg={<AcademicCapIcon className="w-[18px] h-[18px] text-white"/>} title="Parcours"/>
             <div className="flex flex-col justify-start gap-4">
                 {studies.map((study: StudiesProps, index: number) => (
-                    <CareerContent key={index} logo={study.logo ? study.logo : SchoolIcon} title={study.title} job={study.degree} dateStart={study.start_year} dateEnd={study.end_year} />
+                    <CareerContent key={index} logo={study.logo ? study.logo : <BuildingLibraryIcon className="w-[18px] h-[18px] text-white"/>} title={study.title} job={study.degree} dateStart={study.start_year} dateEnd={study.end_year} />
                 ))}
             </div>
         </div>

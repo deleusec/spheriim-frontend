@@ -10,7 +10,7 @@ const nextConfig = {
       ];
     },
     images: {
-      domains: ['res.cloudinary.com'],
+      domains: ['res.cloudinary.com','storage.letudiant.fr', 'upload.wikimedia.org'],
     },
   };
   

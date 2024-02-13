@@ -8,15 +8,18 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
+import { useRouter } from 'next/router';
 
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
+import Card from "@/components/Card";
 const studentTableName = 'spheriim_student';
 
 export default function Students() {
     const [quickFilterText, setQuickFilterText] = useState('')
 
     const [data, setData] = useState({});
-    const [errorMessage, setErrorMessage] = useState<string>(''); 
+    const [errorMessage, setErrorMessage] = useState<string>('');
+
 
     useEffect(() => {
 
@@ -40,9 +43,9 @@ export default function Students() {
         };
 
         fetchData();
-    }, []);
+    }, [errorMessage]);
 
-    const rowHeight = 100
+    const rowHeight = 90;
 
     const centerStyle = {
         display: 'flex',
@@ -54,14 +57,13 @@ export default function Students() {
     const redirectToClass = (id: string) => {
     }
 
-    const redirectToStudent = (id: string, studentData: any) => {
-
+    const redirectToStudent = (id: string) => {
     };
 
     const onRowClicked = useCallback(
         (event: any) => {
             // Naviguez ou effectuez d'autres actions si nécessaire
-            redirectToStudent(event.data.id, event.data);
+            redirectToStudent(event.data.id);
         },
         []
     );
@@ -147,33 +149,39 @@ export default function Students() {
     }, [])
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center bg-light-background">
             <HeadTitles title="Liste des étudiants" />
+            <div className=" w-full h-full p-10">
+                <Card className="w-full">
+                    <div className="ag-theme-alpine w-full p-8 ">
+                        <div className="example-header max-w-[300px]">
+                            <input
+                                type="text"
+                                id="filter-text-box"
+                                placeholder="Search..."
+                                onChange={onFilterTextBoxChanged}
+                                className="mb-3"
+                            />
+                        </div>
+                        <div style={{ height: '500px', width: '100%' }}>
+                            <AgGridReact
+                                columnDefs={columnDefs}
+                                rowData={data ? Object.values(data) : []}
+                                defaultColDef={defaultColDef}
+                                quickFilterText={quickFilterText}
+                                rowHeight={rowHeight}
+                                pagination={true}
+                                paginationPageSize={5}
+                                onRowClicked={onRowClicked}
+                                getRowStyle={getRowStyle}
+                            />
+                        </div>
 
-            <div className="ag-theme-alpine w-full p-8">
 
-                <div className="example-header max-w-[300px]">
-                    <input
-                        type="text"
-                        id="filter-text-box"
-                        placeholder="Search..."
-                        onChange={onFilterTextBoxChanged}
-                        className="mb-3"
-                    />
-                </div>
-                <AgGridReact
-                    columnDefs={columnDefs}
-                    rowData={data ? Object.values(data) : []}
-                    defaultColDef={defaultColDef}
-                    quickFilterText={quickFilterText}
-                    rowHeight={rowHeight}
-                    pagination={true}
-                    paginationPageSize={5}
-                    onRowClicked={onRowClicked}
-                    getRowStyle={getRowStyle}
-                    domLayout='autoHeight'
-                />
+                    </div>
+                </Card>
             </div>
+
         </div>
     )
 }

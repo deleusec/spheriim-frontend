@@ -1,11 +1,11 @@
 import HeaderCards from "./HeaderCards";
-import UserTieIcon from "../assets/icons/user-tie.svg";
+import { RocketLaunchIcon } from "@heroicons/react/24/outline";
 function StudentBio(props: { bio: string }) {
     const { bio } = props;
 
     return (
         <div className="p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
-            <HeaderCards svg={UserTieIcon} title="Projet d'avenir" />
+            <HeaderCards svg={<RocketLaunchIcon className="w-[18px] h-[18px] text-white"/>} title="Projet d'avenir" />
             <div className="p-1">
                 <p className="text-sm">{bio}</p>
             </div>
