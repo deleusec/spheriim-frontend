@@ -1,5 +1,53 @@
-export default function Student() {
+import KeyPoints from "@/components/KeyPoints";
+import LinksList from "@/components/LinksList";
+import StudentBio from "@/components/StudentBio";
+import StudentInfo from "@/components/StudentInfo";
+import SchoolCard from "@/components/SchoolCard";
+import CareerCard from "@/components/CareerCard";
+
+import { ListBulletIcon } from "@heroicons/react/24/outline";
+
+const studentTableName = 'spheriim_student';
+import getSupabase from "@/database/supabase";
+
+async function getData(id: number) {
+    const res = await getSupabase()
+        .from(studentTableName)
+        .select('*')
+        .eq('id', id)
+        .single();
+        return res.data;
+  }
+
+export default async function Student({ params }: { params: { id: number } }) {
+    const studentData = await getData(params.id as number);
+    
     return (
-        <h1>Hello World</h1>
+        <section className="flex flex-col w-full">
+            <StudentInfo firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={"Hello"} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
+            <div className="grid grid-cols-9 auto-rows-auto gap-5 p-8">
+                <div className="flex col-start-1 col-span-4 row-start-1 row-span-1 h-full w-full">
+                    <LinksList links={studentData?.links} />
+                </div>
+                <div className="flex col-start-5 col-span-6 row-start-1 row-span-1 h-full w-full">
+                    <StudentBio bio={studentData?.project_description} />
+                </div>
+                <div className="col-start-1 col-span-3 row-start-2 row-span-1 flex">
+                    <KeyPoints technos={studentData?.skills} svg={<ListBulletIcon className="w-[18px] h-[18px] text-white" />} title="Compétences acquises" />
+                </div>
+                <div className="col-start-4 col-span-3 row-start-2 row-span-1 flex">
+                    <KeyPoints technos={studentData?.wished_improvement} svg={<ListBulletIcon className="w-[18px] h-[18px] text-white" />} title="Points d’amélioration" />
+                </div>
+                <div className="col-start-7 col-span-4 row-start-2 row-span-1 flex">
+                    <KeyPoints technos={studentData?.tools} svg={<ListBulletIcon className="w-[18px] h-[18px] text-white" />} title="Technos préférées" />
+                </div>
+                <div className="flex col-span-10 row-start-3 row-span-1 h-full w-full">
+                    <SchoolCard studies={studentData?.studies} />
+                </div>
+                <div className="flex col-span-10 row-start-4 row-span-1 h-full w-full">
+                    <CareerCard experiences={studentData?.experiences} />
+                </div>
+            </div>
+        </section>
     );
 }
