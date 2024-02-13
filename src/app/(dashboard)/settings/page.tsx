@@ -1,7 +1,9 @@
+import HeadTitles from "@/components/HeadTitles";
+
 export default function Settings() {
     return (
-        <>
-        <h1>Settings</h1>
-        </>
+        <div className="flex flex-col items-center justify-center">
+          <HeadTitles title="Paramètres" />
+        </div>
     )
 }
