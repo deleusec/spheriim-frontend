@@ -8,7 +8,7 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
 import Card from "@/components/Card";
@@ -20,6 +20,7 @@ export default function Students() {
     const [data, setData] = useState({});
     const [errorMessage, setErrorMessage] = useState<string>('');
 
+    const router = useRouter();
 
     useEffect(() => {
 
@@ -55,9 +56,11 @@ export default function Students() {
     }
 
     const redirectToClass = (id: string) => {
+        router.push(`/classes/${id}`);
     }
 
     const redirectToStudent = (id: string) => {
+        router.push(`/students/${id}`);
     };
 
     const onRowClicked = useCallback(
