@@ -1,9 +1,8 @@
 import TeacherInfo from "@/components/TeacherInfo";
-import TeacherBio from "@/components/TeacherBio";
 
 
 const teacherTableName = 'spheriim_teacher';
-import getSupabase from "@/database/supabase";
+import getSupabase from "@/lib/supabase/client";
 import LinksList from "@/components/LinksList";
 
 async function getData(id: number) {
