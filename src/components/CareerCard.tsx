@@ -19,7 +19,7 @@ function CareerCard(props: CareerCardProps) {
     const { experiences } = props;
 
     return (
-        <div className="p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
+        <div className="p-[16px] pb-[40px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
             <HeaderCards svg={<BriefcaseIcon className="w-[18px] h-[18px] text-white"/>} title="Expérience"/>
             <div className="flex flex-col justify-start gap-4">
                 {experiences?.map((experience, index) => (

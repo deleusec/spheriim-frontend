@@ -1,5 +1,5 @@
 import HeaderCards from './HeaderCards';
-import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
+import { LinkIcon } from "@heroicons/react/24/outline";
 
 interface LinksListProps {
     links?: LinksProps[];

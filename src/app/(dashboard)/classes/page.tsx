@@ -92,7 +92,7 @@ export default function Classes() {
             {tabData.map(tab => (
               <li
                 key={tab.id}
-                className={`p-6 border-b hover:bg-primary hover:text-white relative ${activeTab === tab.id ? 'bg-primary text-white' : ''}`}
+                className={`cursor-pointer p-6 border-b hover:bg-primary hover:text-white relative ${activeTab === tab.id ? 'bg-primary text-white' : ''}`}
                 onClick={() => handleTabClick(tab.id)}
               >
                 <p className="flex items-center">
@@ -107,7 +107,7 @@ export default function Classes() {
             {tabData.map(tab => (
               <ul key={tab.id} className={`last:border-b-0 ${tab.id} ${activeTab === tab.id ? '' : 'hidden'}`}>
                 {tab.children.map((child, index) => (
-                  <li key={index} className="p-6 border-b list-none hover:bg-light-background" onClick={() => redirectToClass(index, tab.id)}>
+                  <li key={index} className="cursor-pointer p-6 border-b list-none hover:bg-light-background" onClick={() => redirectToClass(index, tab.id)}>
                     <p>{child}</p>
                   </li>
                 ))}
