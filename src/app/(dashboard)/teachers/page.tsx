@@ -1,6 +1,6 @@
 "use client";
 
-import getSupabase from "@/database/supabase";
+import getSupabase from "@/lib/supabase/client";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AgGridReact } from 'ag-grid-react'

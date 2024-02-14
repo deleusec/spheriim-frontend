@@ -11,7 +11,7 @@ import { ListBulletIcon, XMarkIcon, PencilIcon } from "@heroicons/react/24/outli
 
 
 const teacherTableName = 'spheriim_teacher';
-import getSupabase from "@/database/supabase";
+import getSupabase from "@/lib/supabase/client";
 import LinksList from "@/components/LinksList";
 import KeyPoints from "@/components/KeyPoints";
 
