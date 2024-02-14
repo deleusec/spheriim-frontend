@@ -3,137 +3,119 @@ import HeadTitles from "@/components/HeadTitles";
 import { useState } from "react";
 import Card from "@/components/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from "next/navigation";
 
-function Classes() {
-  const [activeTab, setActiveTab] = useState('');
+const tabData = [
+  {
+    id: 'communication',
+    icon: faComputerMouse,
+    title: 'Communication Digitale et E-Bussiness',
+    children: [
+      'Mastère Stratégies E-Business',
+      'Mastère Stratégie Social Média & Influence',
+      'Mastère Digital Marketing & Data Analytics'
+    ]
+  },
+  {
+    id: 'coding',
+    icon: faCode,
+    title: 'Coding & Digital Innovation',
+    children: [
+      'Mastère Creative Technology',
+      'Mastère Développeur Fullstack',
+      'Mastère Management de la Transformation Digitale'
+    ]
+  },
+  {
+    id: 'aimation',
+    icon: faCube,
+    title: 'Animation 3D',
+    children: [
+      'Mastère Gestion de Production 3D',
+      'Mastère Réalisation et Animation 3D'
+    ]
+  },
+  {
+    id: 'jeux',
+    icon: faGamepad,
+    title: 'Jeux vidéo',
+    children: [
+      'Mastère Game Design',
+      'Mastère Game Programming',
+      'Mastère Game Art',
+      'MBA Spécialisé Vidéo Game Management'
+    ]
+  },
+  {
+    id: 'creation',
+    icon: faPencil,
+    title: 'Création et Design',
+    children: [
+      'Mastère Direction Artistique',
+      'Mastère Product Design UX-UI',
+      'Mastère Interactivité et UX Design'
+    ]
+  },
+  {
+    id: 'audiovisuel',
+    icon: faRecordVinyl,
+    title: 'Audiovisuel',
+    children: ['Bachelor Audiovisuel']
+  },
+  {
+    id: 'summer',
+    icon: faGear,
+    title: 'IIM Summer School',
+    children: ['Summer School Paris', 'Summer School Nantes']
+  }
+];
 
-  const handleTabClick = (tab: string) => {
-      setActiveTab(tab);
+export default function Classes() {
+  const [activeTab, setActiveTab] = useState('communication');
+  const router = useRouter();
+
+  const handleTabClick = (tabId:string) => {
+    setActiveTab(tabId);
   };
 
-  return (
-      <div>
-          <HeadTitles title='Nos classes' subtitle='Découvrez toutes les classes de l’IIM' />
-          <div className='p-8'>
-              <Card className='flex w-full justify-between'>
-                  <ul className="h-max border-2 w-2/4">
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'communication' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('communication')}
-                      >
-                        
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faComputerMouse} className="pr-3 text-2xl"/>
-                          Communication Digitale et E-Bussiness
-                          </a>
-                      </li>
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'coding' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('coding')}
-                      >
-                                                  
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faCode} className="pr-3 text-2xl"/>
-                          Coding & Digital Innovation
-                          </a>
-                      </li>
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'aimation' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('aimation')}
-                      >
-                                                  
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faCube} className="pr-3 text-2xl"/>
-                          Animation 3D
-                          </a>
-                      </li>
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'jeux' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('jeux')}
-                      >
-                                                  
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faGamepad} className="pr-3 text-2xl"/>
-                          Jeux vidéo
-                          </a>
-                      </li>
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'creation' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('creation')}
-                      >
-                                                  
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faPencil} className="pr-3 text-2xl"/>
-                          Création et Design
-                          </a>
-                      </li>
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'audiovisuel' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('audiovisuel')}
-                      >
-                                                  
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faRecordVinyl} className="pr-3 text-2xl"/>
-                          Audiovisuel
-                          </a>
-                      </li>
-                      <li
-                          className={` p-6 border-b-2 hover:bg-primary hover:text-white ${activeTab === 'summer' ? 'bg-primary text-white' : ''
-                              }`}
-                          onClick={() => handleTabClick('summer')}
-                      >
-                                                  
-                          <a href="#" className="flex items-center">
-                          <FontAwesomeIcon icon={faGear} className="pr-3 text-2xl"/>
-                          IIM Summer School
-                          </a>
-                      </li>
-                  </ul>
-                  <div className="classes w-2/4 border-y-2 border-r-2">
-                      <ul className={`communication  ${activeTab === 'communication' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Stratégies E-Business</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Stratégie Social Média & Influence</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Digital Marketing & Data Analytics</a></li>
+  const redirectToClass = (id: number, section: string) => {
+    router.push(`/classes/${section}/${id}`);
+  }
 
-                      </ul>
-                      <ul className={`coding ${activeTab === 'coding' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Creative Technology</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Développeur Fullstack</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Management de la Transformation Digitale</a></li>
-                      </ul>
-                      <ul className={`aimation ${activeTab === 'aimation' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Gestion de Production 3D</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Réalisation et Animation 3D</a></li>
-                      </ul>
-                      <ul className={`jeux ${activeTab === 'jeux' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Game Design</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Game Programming</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Game Art</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">MBA Spécialisé Vidéo Game Management</a></li>
-                      </ul>
-                      <ul className={`creation ${activeTab === 'creation' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Direction Artistique</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Product Design UX-UI</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Mastère Interactivité et UX Design</a></li>
-                      </ul>
-                      <ul className={`audiovisuel ${activeTab === 'audiovisuel' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Bachelor Audiovisuel</a></li>
-                      </ul>
-                      <ul className={`summer ${activeTab === 'summer' ? '' : 'hidden'}`}>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Summer School Paris</a></li>
-                          <li className="p-6 border-b-2 list-none hover:bg-light-background"><a href="#">Summer School Nantes</a></li>
-                      </ul>
-                  </div>
-              </Card>
+  return (
+    <div>
+      <HeadTitles title='Nos classes' subtitle='Découvrez toutes les classes de l’IIM' />
+      <div className='p-8'>
+        <Card className='flex w-full justify-between'>
+          <ul className="h-max border w-2/4">
+            {tabData.map(tab => (
+              <li
+                key={tab.id}
+                className={`p-6 border-b hover:bg-primary hover:text-white relative ${activeTab === tab.id ? 'bg-primary text-white' : ''}`}
+                onClick={() => handleTabClick(tab.id)}
+              >
+                <p className="flex items-center">
+                  <FontAwesomeIcon icon={tab.icon} className="pr-3 text-2xl"/>
+                  {tab.title}
+                </p>
+                {activeTab === tab.id ? <FontAwesomeIcon icon={faCaretRight} className="absolute right-[-2px] bottom-1/2 text-4xl text-primary translate-x-1/2 translate-y-1/2" /> : ''}
+              </li>
+            ))}
+          </ul>
+          <div className="classes w-2/4 border-y border-r ">
+            {tabData.map(tab => (
+              <ul key={tab.id} className={`last:border-b-0 ${tab.id} ${activeTab === tab.id ? '' : 'hidden'}`}>
+                {tab.children.map((child, index) => (
+                  <li key={index} className="p-6 border-b list-none hover:bg-light-background" onClick={() => redirectToClass(index, tab.id)}>
+                    <p>{child}</p>
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
+        </Card>
       </div>
+    </div>
   );
 }
-export default Classes;
