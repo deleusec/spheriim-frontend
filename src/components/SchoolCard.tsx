@@ -19,7 +19,7 @@ interface StudiesProps {
 function CareerCard(props: SchoolCardProps) {
     const { studies } = props;
     return (
-        <div className="p-[16px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
+        <div className="p-[16px] pb-[40px] h-full w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
             <HeaderCards svg={<AcademicCapIcon className="w-[18px] h-[18px] text-white"/>} title="Parcours"/>
             <div className="flex flex-col justify-start gap-4">
                 {studies.map((study: StudiesProps, index: number) => (
