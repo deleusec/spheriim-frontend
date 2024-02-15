@@ -6,7 +6,7 @@ import getUserSession from "@/lib/getUserSessions";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default async function Home() {
+export default function Home() {
   
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -22,6 +22,7 @@ export default async function Home() {
       } else {
         setIsLoading(false)
       }
+      console.log(session)
     }
     auth();
   }, [])
