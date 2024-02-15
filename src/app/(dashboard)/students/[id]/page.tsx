@@ -14,7 +14,7 @@ import getSupabase from "@/lib/supabase/client";
 async function getData(id: number) {
     const res = await getSupabase()
         .from(studentTableName)
-        .select('*')
+        .select(`*, class:class_id(*)`)
         .eq('id', id)
         .single();
         return res.data;
@@ -25,7 +25,7 @@ export default async function Student({ params }: { params: { id: number } }) {
     
     return (
         <section className="flex flex-col w-full">
-            <StudentInfo firstname={studentData?.firstname} name={studentData?.name} student_mail={studentData?.student_email} personnal_email={studentData?.personnal_email} grade={studentData?.class_id.name} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
+            <StudentInfo firstname={studentData?.firstname} name={studentData?.name} student_mail={studentData?.student_email} personnal_email={studentData?.personnal_email} grade={studentData?.class.name} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
             <div className="flex justify-end w-full gap-10 items-center p-[40px] pb-0">
                 <AppButton color="red" icon={<XMarkIcon width={20}/>}>
                     Supprimer la fiche étudiante

@@ -52,10 +52,6 @@ export default function addStudent() {
     let experiences = [{company_name: name_company, job: job, start_date: start_month_job, end_date: end_month_job, status: status_job, description: desc_job}];
     // const [monObjetJSON, setMonObjetJSON] = useState<object>({name:"", fistname: ""});
 
-    function Test() {
-        console.log(studentData);
-    }
-
     async function addData(name: string, firstname: string, student_email: string, personnal_email: string, school_year: string, start_year: string,
                            student_status: string, student_class: number, links: object, desc: string, skills: object, cons: object,
                            pros: object, studies: object, experiences: object) {
@@ -79,8 +75,6 @@ export default function addStudent() {
                     <h1 className="text-2xl lg:text-4xl text-primary font-medium">Ajout d&apos;étudiant</h1>
                 </div>
             </section>
-
-            <button onClick={Test}>Test</button>
             <div className="flex flex-col items-center py-4" >
                 <section className="grid w-full auto-rows-auto grid-cols-2 gap-x-16 gap-y-8 gap-8 px-24 py-6">
                     <div className="col-span-full shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
