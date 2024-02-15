@@ -5,16 +5,29 @@ import NextLesson from "@/components/NextLesson";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { data } from "@/components/Graph";
-// import Calendar from "@/components/Calendar";
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Class() {
-    const NewStudents = data.datasets[0].data[1]
-    
+    const NewStudents = data.datasets[0].data[1];
     ChartJS.register(ArcElement, Tooltip, Legend);
-    
+
+    const pathname = usePathname();
+    const [section, setSection] = useState('');
+    const [id, setId] = useState('');
+
+    useEffect(() => {
+        const parts = pathname.split('/');
+        const section = parts[2];
+        const id = parts[3];
+        setSection(section);
+        setId(id);
+    }, [pathname]);
+
     return (
         <>
-            <ClassInfo/>
+            <ClassInfo section={section} id={id} />
+
             <div className="grid grid-cols-10 auto-rows-auto gap-5 px-8">
                 <div className="flex col-start-1 col-span-5 row-start-1 row-span-1 h-full w-full">
                     <NextLesson/>
@@ -30,9 +43,6 @@ export default function Class() {
             <div className="mt-10 rounded-xl shadow-cards bg-white mx-8">
                 {/* <Calendar/> */}
             </div>
-
         </>
     );
 }
-
-

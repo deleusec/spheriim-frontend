@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from "next/navigation";
 
-const tabData = [
+export const tabData = [
   {
     id: 'communication',
     icon: faComputerMouse,
