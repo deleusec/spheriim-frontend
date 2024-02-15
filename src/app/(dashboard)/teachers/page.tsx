@@ -7,19 +7,37 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
-import { useRouter } from 'next/router';
 
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
 import Card from "@/components/Card";
 const studentTableName = 'spheriim_student';
 import HeadTitles from "@/components/HeadTitles";
+import getUserSession from "@/lib/getUserSessions";
+import { useRouter } from "next/navigation";
+import loadingSpinner from "@/components/LoadingSpinner";
 
 export default function Teachers() {
     const [quickFilterText, setQuickFilterText] = useState('')
 
     const [data, setData] = useState({});
     const [errorMessage, setErrorMessage] = useState<string>('');
+    const [isLoading, setIsLoading] = useState(true);
+    const router = useRouter();
 
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
+
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
 
     useEffect(() => {
 
@@ -139,6 +157,11 @@ export default function Teachers() {
     const onFilterTextBoxChanged = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setQuickFilterText(event.target.value)
     }, [])
+
+    if (isLoading) {
+        return loadingSpinner();
+    }
+
     return (
         <div className="flex flex-col items-center justify-center bg-light-background">
             <HeadTitles title="Liste des professeurs" />
