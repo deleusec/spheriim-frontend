@@ -7,11 +7,11 @@ import { Doughnut } from 'react-chartjs-2';
 import { data } from "@/components/Graph";
 // import Calendar from "@/components/Calendar";
 
-const NewStudents = data.datasets[0].data[1]
-
-ChartJS.register(ArcElement, Tooltip, Legend);
-
 export default function Class() {
+    const NewStudents = data.datasets[0].data[1]
+    
+    ChartJS.register(ArcElement, Tooltip, Legend);
+    
     return (
         <>
             <ClassInfo/>
@@ -20,7 +20,7 @@ export default function Class() {
                     <NextLesson/>
                 </div>
                 <div className="flex col-start-6 col-span-5 row-start-1 row-span-1 h-72 w-full justify-center rounded-xl shadow-cards bg-white p-5 relative">
-                    <Doughnut data={data}/>
+                    <Doughnut data={data} className="w-full h-full max-h-full"/>
                     <p className="absolute text-4xl text-primary" style={{ top: '47%' }}>{NewStudents}%</p>
                 </div>
             </div>
