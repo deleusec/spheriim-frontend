@@ -7,6 +7,7 @@ function StudentInfo(props: {
   student_mail: string
   personnal_email: string
   grade: string
+  school_year: string
   startYear: string
   jobPosition: string
   job: string
@@ -19,6 +20,7 @@ function StudentInfo(props: {
     student_mail,
     personnal_email,
     grade,
+    school_year,
     startYear,
     jobPosition,
     job,
@@ -59,7 +61,7 @@ function StudentInfo(props: {
           </li>
 
           <li className="mb-2">
-            <span className="text-primary font-medium">Classe : </span> {grade}
+            <span className="text-primary font-medium">Classe : </span> {school_year} {grade}
           </li>
           <li className="mb-2">
             <span className="text-primary font-medium">Début à IIM : </span>{' '}
