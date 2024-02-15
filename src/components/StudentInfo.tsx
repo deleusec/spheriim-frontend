@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import ProfileImageDefault from '@/assets/images/user-profile.jpg'
 function StudentInfo(props: {
-  profilePic?: string
+  picture?: string
   firstname: string
   name: string
   student_mail: string
@@ -13,7 +13,7 @@ function StudentInfo(props: {
   company: string
 }) {
   const {
-    profilePic,
+    picture,
     firstname,
     name,
     student_mail,
@@ -25,7 +25,7 @@ function StudentInfo(props: {
     company,
   } = props
 
-  const profilePicDisplay = profilePic ? profilePic : ProfileImageDefault
+  const profilePicDisplay = picture ? picture : ProfileImageDefault
 
   return (
     <section className="w-full flex justify-center items-center gap-12 p-6 bg-white">

@@ -51,10 +51,7 @@ export default class Calendar extends React.Component {
     return (
       <div className="container mx-auto p-8 w-full">
         <Card className="p-[50px] gap-10 flex flex-col items-center justify-center">
-          <div>
-            <h1 className="text-3xl font-thin mb-4">Emploi du temps</h1>
-          </div>
-          <div className="max-w-[700px] w-full">
+          <div className="max-w-[1000px] w-full">
             <FullCalendar
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
