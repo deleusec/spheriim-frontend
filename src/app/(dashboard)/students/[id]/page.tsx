@@ -67,6 +67,7 @@ export default function Student({ params }: { params: { id: number } }) {
         student_mail={studentData?.student_email}
         personnal_email={studentData?.personnal_email}
         grade={studentData?.class?.name}
+        school_year={studentData?.school_year}
         startYear={studentData?.start_year}
         job={studentData?.job}
         jobPosition={studentData?.jobPosition}
