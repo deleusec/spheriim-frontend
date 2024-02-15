@@ -8,8 +8,8 @@ import CareerCard from "@/components/CareerCard";
 import { ListBulletIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const studentTableName = 'spheriim_student';
-import getSupabase from "@/database/supabase";
 import AppButton from "@/components/ui/AppButton";
+import getSupabase from "@/lib/supabase/client";
 
 async function getData(id: number) {
     const res = await getSupabase()

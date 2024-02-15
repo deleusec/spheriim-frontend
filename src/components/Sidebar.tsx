@@ -1,25 +1,28 @@
 "use client";
 
 import SidebarButton from "./SidebarButton";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from 'next/link'
 import Image from 'next/image'
 import { HomeIcon, AcademicCapIcon, UsersIcon, BriefcaseIcon, Cog6ToothIcon, ChevronRightIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useEffect, useState } from "react";
+import { signOut } from "@/app/_actions";
 
 export default function Sidebar() {
     const [sidebarOpen, setSidebarOpen] = useState(true)
-
+    const router = useRouter();
     const pathname = usePathname();
-
-    console.log();
-
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen)
     }
 
-
+    const handleLogout = async () => {
+        const result = await signOut();
+        if (result) {
+            router.push('/auth/login');
+        }
+    }
 
     return (
         <div className={`flex flex-col items-center relative h-[100vh] gap-5 p-10 border-r border-light-background ${sidebarOpen ? "p-10" : "p-5"}`}>
@@ -75,13 +78,10 @@ export default function Sidebar() {
                     </Link>
                 </div>
                 <div>
-                    <Link href={'/login'}>
-                        <SidebarButton text="Déconnexion" active={false} sidebarIsOpen={sidebarOpen}>
-                            <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
-                        </SidebarButton>
-                    </Link>
+                    <SidebarButton text="Déconnexion" active={false} sidebarIsOpen={sidebarOpen} onClick={handleLogout}>
+                        <ArrowRightStartOnRectangleIcon className="w-5 h-5" />
+                    </SidebarButton>
                 </div>
-
             </div>
         </div>
     )

@@ -1,11 +1,11 @@
 import React from 'react';
 import HeaderCards from './HeaderCards';
-import CalendarIcon from '../assets/icons/calendar.svg';
+import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 
 export default function NextLesson() {
     return (
         <div className=" p-[16px] w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
-            <HeaderCards svg={CalendarIcon} title="Procahain cours"/>
+            <HeaderCards title="Prochain cours" svg={<CalendarDaysIcon className="h-6 w-6 text-white" />} />
             <div>
                 <ul className="flex flex-col gap-4 text-sm">
                     <li className="text-primary">
