@@ -2,15 +2,15 @@ import Image from 'next/image'
 import ProfileImageDefault from '@/assets/images/user-profile.jpg'
 
 function TeacherInfo(props: {
-  profilePic?: string
+  picture?: string
   firstname: string
   name: string
   mail: string
   speciality: string
 }) {
-  const { profilePic, firstname, name, mail, speciality } = props
+  const { picture, firstname, name, mail, speciality } = props
 
-  const profilePicDisplay = profilePic ? profilePic : ProfileImageDefault
+  const profilePicDisplay = picture ? picture : ProfileImageDefault
 
   return (
     <section className="w-full flex justify-center items-center gap-12 p-6 bg-white">
@@ -20,6 +20,7 @@ function TeacherInfo(props: {
           alt="Photo du professeur"
           width={500}
           height={500}
+          className='rounded-full'
         />
       </div>
       <div>

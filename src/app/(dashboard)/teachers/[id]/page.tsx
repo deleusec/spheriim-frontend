@@ -71,6 +71,7 @@ export default function Teacher({ params }: { params: { id: number } }) {
   return (
     <section className="flex flex-col w-full">
       <TeacherInfo
+        picture={teacherData?.picture}
         firstname={teacherData?.firstname}
         name={teacherData?.name}
         mail={teacherData?.email}

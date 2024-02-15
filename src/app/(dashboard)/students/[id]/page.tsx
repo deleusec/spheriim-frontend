@@ -61,6 +61,7 @@ export default function Student({ params }: { params: { id: number } }) {
   return (
     <section className="flex flex-col w-full">
       <StudentInfo
+        picture={studentData?.picture}
         firstname={studentData?.firstname}
         name={studentData?.name}
         student_mail={studentData?.student_email}

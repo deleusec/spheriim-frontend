@@ -14,6 +14,7 @@ const nextConfig = {
       'res.cloudinary.com',
       'storage.letudiant.fr',
       'upload.wikimedia.org',
+      "media.licdn.com"
     ],
   },
 }
