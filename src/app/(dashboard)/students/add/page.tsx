@@ -1,6 +1,58 @@
 import { UserPlusIcon } from "@heroicons/react/16/solid";
 
-export default function AddStudent() {
+const studentTableName = 'spheriim_student';
+import getSupabase from "@/lib/supabase/client";
+import AppButton from "@/components/ui/AppButton";
+
+async function addData(id: number) {
+    const res = await getSupabase()
+        .from(studentTableName)
+        .insert({ name: 'testMehdi' })
+    return res.data;
+}
+export default async function addStudent({ params }: { params: { id: number } }) {
+    // const res = await getSupabase()
+    //     .from(studentTableName)
+    //     .insert({
+    //         id: 1,
+    //         name: name,
+    //         firstname : 'Denmark',
+    //         picture: 'https://www.google.com',
+    //         student_email: '',
+    //         personal_email: '',
+    //         class_id: 1,
+    //         school_year: "A4",
+    //         start_year: "A1",
+    //         status: "initial",
+    //         links: {"github": "https://github.com", "linkedin": "https://linkedin.com", "portfolio": "https://portfolio.com"},
+    //         skills: ["HTML", "CSS", "JS"],
+    //         wished_improvement: ["React", "NodeJS"],
+    //         tools: ["VSCode", "Figma"],
+    //         project_description: "Je veux devenir un super dev",
+    //         studies: [
+    //             {
+    //                 school_name: "Epitech",
+    //                 level: "Bac+2",
+    //                 start_date: "2021-01",
+    //                 end_date: "2023-09"
+    //             }
+    //         ],
+    //         experiences: [
+    //             {
+    //                 company_name: "Google",
+    //                 job: "Dev",
+    //                 start_date: "2021-09",
+    //                 end_date: "2023-09",
+    //                 status: "intern",
+    //                 description: "J'ai fait du dev"
+    //             }
+    //         ],
+    //
+    //     });
+    // return res.data;
+    const studentData = await addData(params.id as number);
+
+    console.log('studentData');
 
     return (
         <section className="flex flex-col w-full">
@@ -12,7 +64,7 @@ export default function AddStudent() {
                     <h1 className="text-2xl lg:text-4xl text-primary font-medium">Ajout d&apos;étudiant</h1>
                 </div>
             </section>
-            <section className="flex flex-col items-center py-4">
+            <form className="flex flex-col items-center py-4">
                 <section className="grid w-full auto-rows-auto grid-cols-2 gap-x-16 gap-y-8 gap-8 px-24 py-6">
                     <div className="col-span-full shadow-cards rounded-xl bg-white py-4 px-8 flex flex-col items-center gap-8 mb-2">
                         <h3 className="text-primary">Informations globales</h3>
@@ -20,7 +72,7 @@ export default function AddStudent() {
                         <div className="flex gap-8 items-center justify-center">
                             <label><span className="text-primary">Photo</span> de l&apos;étudiant</label>
                             <div className="relative">
-                                <label htmlFor="pic" className="flex justify-center items-center rounded-full w-20 h-20 border-dashed border-2 text-4xl text-gray-400 bg-slate-100 cursor-pointer">+</label>
+                                <label htmlFor="pic" className="flex justify-center items-center rounded-full w-20 h-20 border-dashed border-2 text-4xl text-gray-400 bg-light-background cursor-pointer">+</label>
 
                                 <input type="file" id="pic" name="pic" accept="image/png, image/jpeg" className="absolute opacity-0" />
                             </div>
@@ -61,8 +113,7 @@ export default function AddStudent() {
                             </div>
 
                             <div>
-                                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                <label htmlFor="class-select">Classe de <span className="text-primary">l'étudiant</span></label>
+                                <label htmlFor="class-select">Classe de <span className="text-primary">l&apos;étudiant</span></label>
                                 <select name="classes" id="class-select">
                                     <option value="" className="text-gray-900">--Choisir Classe--</option>
                                     <option value="fullstack">Fullstack</option>
@@ -113,7 +164,7 @@ export default function AddStudent() {
                             <div className="flex flex-col">
                                 <label><span className="text-primary">CV</span> de l&apos;étudiant</label>
                                 <div className="relative">
-                                    <label htmlFor="cv" className="flex justify-center items-center rounded-md border-dashed border-2 w-24 text-3xl text-gray-400 bg-slate-100 cursor-pointer">+</label>
+                                    <label htmlFor="cv" className="flex justify-center items-center rounded-md border-dashed border-2 w-24 text-3xl text-gray-400 bg-light-background cursor-pointer">+</label>
 
                                     <input type="file" id="cv" name="cv" accept=".pdf" className="absolute opacity-0" />
                                 </div>
@@ -235,10 +286,11 @@ export default function AddStudent() {
 
                 </section>
 
-                <button className="flex items-center gap-4 py-3 px-4 border-2 border-primary border-solid rounded-lg text-sm bg-primary text-white transition-all hover:bg-transparent hover:text-primary" >
+                <button type="submit" className="flex items-center gap-4 py-3 px-4 border-2 border-primary border-solid rounded-lg text-sm bg-primary text-white transition-all hover:bg-transparent hover:text-primary" >
                     Ajouter étudiant
                 </button>
-            </section>
+
+            </form>
 
         </section>
     );
