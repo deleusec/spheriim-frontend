@@ -9,18 +9,35 @@ import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import { useRouter } from 'next/navigation';
-
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
 import Card from "@/components/Card";
+import AppButton from "@/components/ui/AppButton";
+import getUserSession from "@/lib/getUserSessions";
+import loadingSpinner from "@/components/LoadingSpinner";
 const studentTableName = 'spheriim_student';
 
 export default function Students() {
     const [quickFilterText, setQuickFilterText] = useState('')
-
     const [data, setData] = useState({});
     const [errorMessage, setErrorMessage] = useState<string>('');
-
+    const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
+
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
+
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
 
     useEffect(() => {
 
@@ -45,6 +62,21 @@ export default function Students() {
 
         fetchData();
     }, [errorMessage]);
+
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
+
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
 
     const rowHeight = 90;
 
@@ -147,21 +179,31 @@ export default function Students() {
         setQuickFilterText(event.target.value)
     }, [])
 
+    if (isLoading) {
+        return loadingSpinner();
+    }
+
     return (
         <div className="flex flex-col items-center justify-center bg-light-background">
             <HeadTitles title="Liste des étudiants" />
             <div className=" w-full h-full p-10">
                 <Card className="w-full">
                     <div className="ag-theme-alpine w-full p-8 ">
-                        <div className="example-header max-w-[300px]">
-                            <input
-                                type="text"
-                                id="filter-text-box"
-                                placeholder="Search..."
-                                onChange={onFilterTextBoxChanged}
-                                className="mb-3"
-                            />
+
+                        <div className="w-full flex justify-between mb-10">
+                            <div className="example-header w-full max-w-[300px]">
+                                <input
+                                    type="text"
+                                    id="filter-text-box"
+                                    placeholder="Search..."
+                                    onChange={onFilterTextBoxChanged}
+                                    className="mb-3"
+                                />
+
+                            </div>
+                            <AppButton color="orange" onClick={() => router.push('/students/add')} icon={<PlusCircleIcon className="w-5" />}>Ajouter un étudiant</AppButton>
                         </div>
+
                         <div style={{ height: '500px', width: '100%' }}>
                             <AgGridReact
                                 columnDefs={columnDefs}

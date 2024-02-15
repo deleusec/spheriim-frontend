@@ -1,3 +1,5 @@
+"use client"
+
 import KeyPoints from "@/components/KeyPoints";
 import LinksList from "@/components/LinksList";
 import StudentBio from "@/components/StudentBio";
@@ -10,6 +12,10 @@ import { ListBulletIcon, XMarkIcon } from "@heroicons/react/24/outline";
 const studentTableName = 'spheriim_student';
 import AppButton from "@/components/ui/AppButton";
 import getSupabase from "@/lib/supabase/client";
+import { useRouter } from "next/navigation";
+import getUserSession from "@/lib/getUserSessions";
+import { useEffect, useState } from "react";
+import loadingSpinner from "@/components/LoadingSpinner";
 
 async function getData(id: number) {
     const res = await getSupabase()
@@ -17,17 +23,49 @@ async function getData(id: number) {
         .select('*')
         .eq('id', id)
         .single();
-        return res.data;
-  }
+    return res.data;
+}
 
-export default async function Student({ params }: { params: { id: number } }) {
-    const studentData = await getData(params.id as number);
-    
+export default function Student({ params }: { params: { id: number } }) {
+
+    const [isLoading, setIsLoading] = useState(true);
+    const [studentData, setStudentData] = useState<any>({});
+    const router = useRouter();
+
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
+
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getData(params.id as number);
+            setStudentData(data);
+        };
+        fetchData();
+    }, [params.id]);
+
+    if (isLoading) {
+        return loadingSpinner();
+    }
+
+
+
     return (
         <section className="flex flex-col w-full">
             <StudentInfo firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={"Hello"} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
             <div className="flex justify-end w-full gap-10 items-center p-[40px] pb-0">
-                <AppButton color="red" icon={<XMarkIcon width={20}/>}>
+                <AppButton color="red" icon={<XMarkIcon width={20} />}>
                     Supprimer la fiche étudiante
                 </AppButton>
             </div>

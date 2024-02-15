@@ -1,10 +1,12 @@
 "use client";
-import HeadTitles from "@/components/HeadTitles";
-import { useState } from "react";
 import Card from "@/components/Card";
+import HeadTitles from "@/components/HeadTitles";
+import loadingSpinner from "@/components/LoadingSpinner";
+import getUserSession from "@/lib/getUserSessions";
+import { faCaretRight, faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
  export const tabData = [
   {
@@ -73,9 +75,30 @@ import { useRouter } from "next/navigation";
 
 export default function Classes() {
   const [activeTab, setActiveTab] = useState('communication');
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  const handleTabClick = (tabId:string) => {
+  useEffect(() => {
+    const auth = async () => {
+      const {
+        data: { session },
+      } = await getUserSession();
+
+      if (!session) {
+        router.replace('/auth/login');
+      } else {
+        setIsLoading(false)
+      }
+    }
+    auth();
+  }, [])
+
+  if (isLoading) {
+    return loadingSpinner();
+  }
+
+
+  const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
   };
 
@@ -96,7 +119,7 @@ export default function Classes() {
                 onClick={() => handleTabClick(tab.id)}
               >
                 <p className="flex items-center">
-                  <FontAwesomeIcon icon={tab.icon} className="pr-3 text-2xl"/>
+                  <FontAwesomeIcon icon={tab.icon} className="pr-3 text-2xl" />
                   {tab.title}
                 </p>
                 {activeTab === tab.id ? <FontAwesomeIcon icon={faCaretRight} className="absolute right-[-2px] bottom-1/2 text-4xl text-primary translate-x-1/2 translate-y-1/2" /> : ''}
