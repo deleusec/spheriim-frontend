@@ -32,6 +32,7 @@ export default function Home() {
     return loadingSpinner();
   }
 
+
     return (
         <div className="flex flex-col items-center justify-center">
           <HeadTitles title="Accueil" subtitle="Bienvenue sur SpherIIM" />
