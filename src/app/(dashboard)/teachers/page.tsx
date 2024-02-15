@@ -7,12 +7,12 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
-import { useRouter } from 'next/router';
 
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
 import Card from "@/components/Card";
-const studentTableName = 'spheriim_student';
+const teacherTableName = 'spheriim_teacher';
 import HeadTitles from "@/components/HeadTitles";
+import { useRouter } from "next/navigation";
 
 export default function Teachers() {
     const [quickFilterText, setQuickFilterText] = useState('')
@@ -20,15 +20,16 @@ export default function Teachers() {
     const [data, setData] = useState({});
     const [errorMessage, setErrorMessage] = useState<string>('');
 
+    const router = useRouter();
 
     useEffect(() => {
 
         const fetchData = async () => {
             try {
                 const { data, error } = await getSupabase()
-                    .from(studentTableName)
+                    .from(teacherTableName)
                     .select(
-                        `*, class:class_id(*)`
+                        `*`
                     );
                 if (error) {
                     setErrorMessage(error.message);
@@ -41,7 +42,9 @@ export default function Teachers() {
 
             }
         };
-
+        
+        console.log(data);
+        
         fetchData();
     }, [errorMessage]);
 
@@ -53,17 +56,15 @@ export default function Teachers() {
         justifyContent: 'flex-start',
         height: '100%',
     }
-
-    const redirectToClass = (id: string) => {
-    }
-
-    const redirectToStudent = (id: string) => {
+    
+    const redirectToTeacher = (id: string) => {
+        router.push(`/teachers/${id}`);
     };
 
     const onRowClicked = useCallback(
         (event: any) => {
             // Naviguez ou effectuez d'autres actions si nécessaire
-            redirectToStudent(event.data.id);
+            redirectToTeacher(event.data.id);
         },
         []
     );
@@ -87,9 +88,9 @@ export default function Teachers() {
         },
         {
             headerName: "Spécialité",
-            field: "class.name",
+            field: "speciality",
             cellRenderer: (params: any) => (
-                <button onClick={() => redirectToClass(params.data.class_id)}
+                <button
                     style={{
                         backgroundColor: '#F07D00',
                         color: 'white',
