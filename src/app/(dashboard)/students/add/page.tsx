@@ -9,7 +9,7 @@ const studentTableName = 'spheriim_student'
 import getSupabase from '@/lib/supabase/client'
 import { useEffect, useState } from 'react'
 
-export default function addStudent() {
+export default function AddStudent() {
   const [name, setName] = useState<String>('')
   const [firstname, setFirstname] = useState<string>('')
   const [student_email, setStudentEmail] = useState<string>('')
@@ -193,7 +193,7 @@ export default function addStudent() {
                   name="name"
                   id="name"
                   placeholder="Nom..."
-                  value={name}
+                  value={name as string}
                   onChange={e => setName(e.target.value)}
                 />
               </div>
