@@ -1,5 +1,10 @@
-"use client";
+"use client"
+
+import loadingSpinner from "@/components/LoadingSpinner";
+import getUserSession from "@/lib/getUserSessions";
 import { UserPlusIcon } from "@heroicons/react/16/solid";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const studentTableName = 'spheriim_student';
 import getSupabase from "@/lib/supabase/client";
@@ -69,11 +74,33 @@ export default function addStudent() {
     }
 
 
+    const [isLoading, setIsLoading] = useState(true);
+    const router = useRouter();
+
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
+
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
+
+    if (isLoading) {
+        return loadingSpinner();
+    }
+    
     return (
         <section className="flex flex-col w-full">
             <section className="w-full flex justify-center items-center gap-12 p-6 bg-white">
                 <div className="w-1/6 max-w-[140px]">
-                    <UserPlusIcon className="text-primary"/>
+                    <UserPlusIcon className="text-primary" />
                 </div>
                 <div>
                     <h1 className="text-2xl lg:text-4xl text-primary font-medium">Ajout d&apos;étudiant</h1>
@@ -250,7 +277,7 @@ export default function addStudent() {
                                     <input type="month" name="end-month" id="end-month" placeholder="Indiquer Année..." value={end_month} onChange={(e) => setEndMonth(e.target.value)}/>
                                 </div>
                             </div>
-                            <hr className="w-3/4"/>
+                            <hr className="w-3/4" />
                         </div>
                     </div>
 
@@ -296,7 +323,7 @@ export default function addStudent() {
                                     <textarea id="desc-job" name="desc-job" rows={2} cols={50} placeholder="Texte..." value={desc_job} onChange={(e) => setDescJob(e.target.value)}/>
                                 </div>
                             </div>
-                            <hr className="w-3/4"/>
+                            <hr className="w-3/4" />
                         </div>
                     </div>
 
