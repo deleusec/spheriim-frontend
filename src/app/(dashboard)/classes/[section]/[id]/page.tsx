@@ -5,13 +5,15 @@ import NextLesson from "@/components/NextLesson";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { data } from "@/components/Graph";
+import { tabData } from "../../page";
 // import Calendar from "@/components/Calendar";
 
 const NewStudents = data.datasets[0].data[1]
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function Class() {
+export default function MyClass() {
+    console.log(tabData);
     return (
         <>
             <ClassInfo/>
@@ -30,7 +32,6 @@ export default function Class() {
             <div className="mt-10 rounded-xl shadow-cards bg-white mx-8">
                 {/* <Calendar/> */}
             </div>
-
         </>
     );
 }

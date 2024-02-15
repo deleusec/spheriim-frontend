@@ -1,8 +1,8 @@
+import React from 'react';
 import HeaderCards from './HeaderCards';
 import CalendarIcon from '../assets/icons/calendar.svg';
 
-function NextLesson() {
-
+export default function NextLesson() {
     return (
         <div className=" p-[16px] w-full rounded-xl shadow-cards flex flex-col gap-4 bg-white">
             <HeaderCards svg={CalendarIcon} title="Procahain cours"/>
@@ -25,5 +25,3 @@ function NextLesson() {
         </div>
     )
 }
-
-export default NextLesson;
