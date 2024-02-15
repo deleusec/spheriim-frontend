@@ -10,6 +10,10 @@ import { ListBulletIcon, XMarkIcon } from "@heroicons/react/24/outline";
 const studentTableName = 'spheriim_student';
 import AppButton from "@/components/ui/AppButton";
 import getSupabase from "@/lib/supabase/client";
+import { useRouter } from "next/navigation";
+import getUserSession from "@/lib/getUserSessions";
+import { useEffect, useState } from "react";
+import loadingSpinner from "@/components/LoadingSpinner";
 
 async function getData(id: number) {
     const res = await getSupabase()
@@ -17,17 +21,40 @@ async function getData(id: number) {
         .select('*')
         .eq('id', id)
         .single();
-        return res.data;
-  }
+    return res.data;
+}
 
 export default async function Student({ params }: { params: { id: number } }) {
+
+    const [isLoading, setIsLoading] = useState(true);
+    const router = useRouter();
+
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
+
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
+
+    if (isLoading) {
+        return loadingSpinner();
+    }
+
     const studentData = await getData(params.id as number);
-    
+
     return (
         <section className="flex flex-col w-full">
             <StudentInfo firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={"Hello"} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
             <div className="flex justify-end w-full gap-10 items-center p-[40px] pb-0">
-                <AppButton color="red" icon={<XMarkIcon width={20}/>}>
+                <AppButton color="red" icon={<XMarkIcon width={20} />}>
                     Supprimer la fiche étudiante
                 </AppButton>
             </div>
