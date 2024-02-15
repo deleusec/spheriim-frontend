@@ -10,7 +10,6 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ColDef } from 'ag-grid-community'
 import { useRouter } from 'next/navigation';
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
 import Card from "@/components/Card";
 import AppButton from "@/components/ui/AppButton";

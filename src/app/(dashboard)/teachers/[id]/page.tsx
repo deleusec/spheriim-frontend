@@ -1,16 +1,12 @@
+"use client"
+
 import TeacherInfo from "@/components/TeacherInfo";
 import TeacherBio from "@/components/TeacherBio";
 import TeacherFunFacts from "@/components/TeacherFunFacts";
 import SchoolCard from "@/components/SchoolCard";
 import CareerCard from "@/components/CareerCard";
-
 import AppButton from "@/components/ui/AppButton";
-
 import { ListBulletIcon, XMarkIcon, PencilIcon } from "@heroicons/react/24/outline";
-
-
-
-const teacherTableName = 'spheriim_teacher';
 import getSupabase from "@/lib/supabase/client";
 import LinksList from "@/components/LinksList";
 import KeyPoints from "@/components/KeyPoints";
@@ -18,6 +14,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import getUserSession from "@/lib/getUserSessions";
 import loadingSpinner from "@/components/LoadingSpinner";
+
+const teacherTableName = 'spheriim_teacher';
 
 async function getData(id: number) {
 
@@ -35,9 +33,10 @@ async function getData(id: number) {
     return data;
 }
 
-export default async function Teacher({ params }: { params: { id: number } }) {
+export default function Teacher({ params }: { params: { id: number } }) {
 
     const [isLoading, setIsLoading] = useState(true);
+    const [teacherData, setTeacherData] = useState<any>({});
     const router = useRouter();
 
     useEffect(() => {
@@ -55,11 +54,17 @@ export default async function Teacher({ params }: { params: { id: number } }) {
         auth();
     }, [])
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getData(params.id as number);
+            setTeacherData(data);
+        };
+        fetchData();
+    }, [params.id]);
+
     if (isLoading) {
         return loadingSpinner();
     }
-
-    const teacherData = await getData(params.id as number);
 
     return (
         <section className="flex flex-col w-full">

@@ -1,3 +1,5 @@
+"use client"
+
 import KeyPoints from "@/components/KeyPoints";
 import LinksList from "@/components/LinksList";
 import StudentBio from "@/components/StudentBio";
@@ -24,9 +26,10 @@ async function getData(id: number) {
     return res.data;
 }
 
-export default async function Student({ params }: { params: { id: number } }) {
+export default function Student({ params }: { params: { id: number } }) {
 
     const [isLoading, setIsLoading] = useState(true);
+    const [studentData, setStudentData] = useState<any>({});
     const router = useRouter();
 
     useEffect(() => {
@@ -44,11 +47,19 @@ export default async function Student({ params }: { params: { id: number } }) {
         auth();
     }, [])
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getData(params.id as number);
+            setStudentData(data);
+        };
+        fetchData();
+    }, [params.id]);
+
     if (isLoading) {
         return loadingSpinner();
     }
 
-    const studentData = await getData(params.id as number);
+
 
     return (
         <section className="flex flex-col w-full">

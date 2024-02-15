@@ -1,3 +1,5 @@
+"use client"
+
 import loadingSpinner from "@/components/LoadingSpinner";
 import getUserSession from "@/lib/getUserSessions";
 import { UserPlusIcon } from "@heroicons/react/16/solid";
