@@ -18,7 +18,7 @@ function CareerContent(props: {
   const dateEndDisplay = dateEnd ? dateEnd : 'en cours...'
   return (
     <div className="flex items-center gap-6 w-full px-5">
-      <div className="w-1/4 max-w-[40px]">
+      <div className="w-1/4 max-w-[40px] text-primary">
           {logo === "job" ? <BuildingOffice2Icon/> : <AcademicCapIcon/> }
       </div>
       <div className="flex flex-col gap-1">

@@ -52,7 +52,7 @@ export default function Student({ params }: { params: { id: number } }) {
   async function getData(id: number) {
     const res = await getSupabase()
       .from(studentTableName)
-      .select('*')
+        .select(`*, class:class_id(*)`)
       .eq('id', id)
       .single()
     return res.data
@@ -65,7 +65,7 @@ export default function Student({ params }: { params: { id: number } }) {
         name={studentData?.name}
         student_mail={studentData?.student_email}
         personnal_email={studentData?.personnal_email}
-        grade={'1'}
+        grade={studentData?.class?.name}
         startYear={studentData?.start_year}
         job={studentData?.job}
         jobPosition={studentData?.jobPosition}
