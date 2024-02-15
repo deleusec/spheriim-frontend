@@ -25,7 +25,7 @@ export default async function Student({ params }: { params: { id: number } }) {
     
     return (
         <section className="flex flex-col w-full">
-            <StudentInfo firstname={studentData?.firstname} name={studentData?.name} mail={studentData?.email} grade={"Hello"} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
+            <StudentInfo firstname={studentData?.firstname} name={studentData?.name} student_mail={studentData?.student_email} personnal_email={studentData?.personnal_email} grade={studentData?.class_id.name} startYear={studentData?.start_year} job={studentData?.job} jobPosition={studentData?.jobPosition} company={studentData?.company} />
             <div className="flex justify-end w-full gap-10 items-center p-[40px] pb-0">
                 <AppButton color="red" icon={<XMarkIcon width={20}/>}>
                     Supprimer la fiche étudiante
@@ -36,7 +36,7 @@ export default async function Student({ params }: { params: { id: number } }) {
                     <LinksList links={studentData?.links} />
                 </div>
                 <div className="flex col-start-5 col-span-6 row-start-1 row-span-1 h-full w-full">
-                    <StudentBio bio={studentData?.project_description} />
+                    <StudentBio bio={studentData?.description} />
                 </div>
                 <div className="col-start-1 col-span-3 row-start-2 row-span-1 flex">
                     <KeyPoints technos={studentData?.skills} svg={<ListBulletIcon className="w-[18px] h-[18px] text-white" />} title="Compétences acquises" />

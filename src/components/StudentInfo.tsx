@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import ProfileImageDefault from '@/assets/images/user-profile.jpg';
-function StudentInfo(props: { profilePic?: string, firstname: string; name: string; mail: string; grade: string; startYear: string; jobPosition: string; job: string; company: string; }) {
-    const { profilePic, firstname, name, mail, grade, startYear, jobPosition, job, company } = props;
+function StudentInfo(props: { profilePic?: string, firstname: string; name: string; student_mail: string; personnal_email:string; grade: string; startYear: string; jobPosition: string; job: string; company: string; }) {
+    const { profilePic, firstname, name, student_mail, personnal_email, grade, startYear, jobPosition, job, company } = props;
 
     const profilePicDisplay = profilePic ? profilePic : ProfileImageDefault ;
 
@@ -13,7 +13,9 @@ function StudentInfo(props: { profilePic?: string, firstname: string; name: stri
             <div>
                 <h2 className="mb-6 text-xl lg:text-2xl">{firstname} <span className="uppercase">{name}</span></h2>
                 <ul className="gap-4">
-                    <li className="mb-2"><span className="text-primary font-medium">Mail : </span> <a className="underline" href={`mailto:${mail}`}>{mail}</a></li>
+                    <li className="mb-2"><span className="text-primary font-medium">Mail étudiant : </span> <a className="underline" href={`mailto:${student_mail}`}>{student_mail}</a></li>
+                    <li className="mb-2"><span className="text-primary font-medium">Mail personnel: </span> <a className="underline" href={`mailto:${personnal_email}`}>{personnal_email}</a></li>
+
                     <li className="mb-2"><span className="text-primary font-medium">Classe : </span> {grade}</li>
                     <li className="mb-2"><span className="text-primary font-medium">Début à IIM : </span> {startYear}</li>
                     {job && jobPosition && company && (
