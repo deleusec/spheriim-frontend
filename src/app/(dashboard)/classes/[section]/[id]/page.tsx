@@ -5,6 +5,8 @@ import NextLesson from "@/components/NextLesson";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { data } from "@/components/Graph";
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useRouter } from "next/navigation";
 import getUserSession from "@/lib/getUserSessions";
 import { useEffect, useState } from "react";
@@ -13,9 +15,25 @@ import { tabData } from "../../page";
 // import Calendar from "@/components/Calendar";
 
 export default function Class() {
-    const NewStudents = data.datasets[0].data[1]
-    
+    const NewStudents = data.datasets[0].data[1];
     ChartJS.register(ArcElement, Tooltip, Legend);
+
+    const pathname = usePathname();
+    const [section, setSection] = useState('');
+    const [id, setId] = useState('');
+
+    useEffect(() => {
+        const parts = pathname.split('/');
+        const section = parts[2];
+        const id = parts[3];
+        setSection(section);
+        setId(id);
+    }, [pathname]);
+
+    return (
+        <>
+            <ClassInfo section={section} id={id} />
+
     
 
     const [isLoading, setIsLoading] = useState(true);
@@ -62,5 +80,3 @@ export default function Class() {
         </>
     );
 }
-
-
