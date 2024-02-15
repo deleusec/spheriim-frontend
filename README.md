@@ -48,7 +48,7 @@ This project aims to create a website for students and their teachers. Each stud
 
 ## 2. Screenshot
 
-![Spheriim](.src/assets/browserframe_spheriim.png)
+![Spheriim](./src/assets/browserframe_spheriim.png)
 
 ## 3. Diagram and architecture
 
