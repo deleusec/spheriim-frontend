@@ -1,5 +1,6 @@
 "use client"
 
+import Calendar from "@/components/Calendar";
 import HeadTitles from "@/components/HeadTitles";
 import loadingSpinner from "@/components/LoadingSpinner";
 import getUserSession from "@/lib/getUserSessions";
@@ -31,10 +32,11 @@ export default function Home() {
     return loadingSpinner();
   }
 
-
-  return (
-    <div className="flex flex-col items-center justify-center">
-      <HeadTitles title="Accueil" subtitle="Bienvenue sur SpherIIM" />
-    </div>
-  );
+    return (
+        <div className="flex flex-col items-center justify-center">
+          <HeadTitles title="Accueil" subtitle="Bienvenue sur SpherIIM" />
+          
+          <Calendar />
+        </div>
+    );
 }
