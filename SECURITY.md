@@ -4,17 +4,17 @@
 
 Utilisez cette section pour informer les utilisateurs de la manière de signaler une vulnérabilité.
 
-* **Signalement par courrier électronique:** Veuillez envoyer un e-mail décrivant le problème de sécurité à l'adresse électronique suivante : corentin.deleuse@edu.devinci.fr
+- **Signalement par courrier électronique:** Veuillez envoyer un e-mail décrivant le problème de sécurité à l'adresse électronique suivante : corentin.deleuse@edu.devinci.fr
 
-* **Signalement par dépôt GitHub:** Vous pouvez également signaler une vulnérabilité en créant un nouvel incident de sécurité via le dépôt GitHub du projet.
+- **Signalement par dépôt GitHub:** Vous pouvez également signaler une vulnérabilité en créant un nouvel incident de sécurité via le dépôt GitHub du projet.
 
-* **Priorité:** Nous prendrons en compte toutes les signalements de vulnérabilités de manière sérieuse et les traiterons en priorité absolue.
+- **Priorité:** Nous prendrons en compte toutes les signalements de vulnérabilités de manière sérieuse et les traiterons en priorité absolue.
 
-* **Réponse:** Nous vous contacterons dans les plus brefs délais pour confirmer la réception de votre signalement et pour vous tenir informé des progrès réalisés.
+- **Réponse:** Nous vous contacterons dans les plus brefs délais pour confirmer la réception de votre signalement et pour vous tenir informé des progrès réalisés.
 
-* **Correction:** Une fois le problème de sécurité confirmé, nous travaillerons rapidement pour le corriger et publier une mise à jour de sécurité.
+- **Correction:** Une fois le problème de sécurité confirmé, nous travaillerons rapidement pour le corriger et publier une mise à jour de sécurité.
 
-* **Attribution:** Nous créditerons les utilisateurs qui signalent des vulnérabilités de manière utile et constructive.
+- **Attribution:** Nous créditerons les utilisateurs qui signalent des vulnérabilités de manière utile et constructive.
 
 ## Sécurité du code
 

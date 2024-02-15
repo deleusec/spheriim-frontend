@@ -31,7 +31,7 @@
       - [8.5.1 Here's how to submit a pull request:](#851-heres-how-to-submit-a-pull-request)
     - [8.6. Await Feedback](#86-await-feedback)
   - [9. Code of Conduct](#9-code-of-conduct)
-  
+
 ![GitHub last commit](https://img.shields.io/github/last-commit/deleusec/spheriim-frontend)
 ![GitHub issues](https://img.shields.io/github/issues-raw/deleusec/spheriim-frontend)
 

@@ -1,12 +1,21 @@
-"use client";
-import Card from "@/components/Card";
-import HeadTitles from "@/components/HeadTitles";
-import loadingSpinner from "@/components/LoadingSpinner";
-import getUserSession from "@/lib/getUserSessions";
-import { faCaretRight, faCode, faComputerMouse, faCube, faGamepad, faGear, faPencil, faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client'
+import Card from '@/components/Card'
+import HeadTitles from '@/components/HeadTitles'
+import loadingSpinner from '@/components/LoadingSpinner'
+import getUserSession from '@/lib/getUserSessions'
+import {
+  faCaretRight,
+  faCode,
+  faComputerMouse,
+  faCube,
+  faGamepad,
+  faGear,
+  faPencil,
+  faRecordVinyl,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 const tabData = [
   {
@@ -16,8 +25,8 @@ const tabData = [
     children: [
       'Mastère Stratégies E-Business',
       'Mastère Stratégie Social Média & Influence',
-      'Mastère Digital Marketing & Data Analytics'
-    ]
+      'Mastère Digital Marketing & Data Analytics',
+    ],
   },
   {
     id: 'coding',
@@ -26,8 +35,8 @@ const tabData = [
     children: [
       'Mastère Creative Technology',
       'Mastère Développeur Fullstack',
-      'Mastère Management de la Transformation Digitale'
-    ]
+      'Mastère Management de la Transformation Digitale',
+    ],
   },
   {
     id: 'aimation',
@@ -35,8 +44,8 @@ const tabData = [
     title: 'Animation 3D',
     children: [
       'Mastère Gestion de Production 3D',
-      'Mastère Réalisation et Animation 3D'
-    ]
+      'Mastère Réalisation et Animation 3D',
+    ],
   },
   {
     id: 'jeux',
@@ -46,8 +55,8 @@ const tabData = [
       'Mastère Game Design',
       'Mastère Game Programming',
       'Mastère Game Art',
-      'MBA Spécialisé Vidéo Game Management'
-    ]
+      'MBA Spécialisé Vidéo Game Management',
+    ],
   },
   {
     id: 'creation',
@@ -56,61 +65,63 @@ const tabData = [
     children: [
       'Mastère Direction Artistique',
       'Mastère Product Design UX-UI',
-      'Mastère Interactivité et UX Design'
-    ]
+      'Mastère Interactivité et UX Design',
+    ],
   },
   {
     id: 'audiovisuel',
     icon: faRecordVinyl,
     title: 'Audiovisuel',
-    children: ['Bachelor Audiovisuel']
+    children: ['Bachelor Audiovisuel'],
   },
   {
     id: 'summer',
     icon: faGear,
     title: 'IIM Summer School',
-    children: ['Summer School Paris', 'Summer School Nantes']
-  }
-];
+    children: ['Summer School Paris', 'Summer School Nantes'],
+  },
+]
 
 export default function Classes() {
-  const [activeTab, setActiveTab] = useState('communication');
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
+  const [activeTab, setActiveTab] = useState('communication')
+  const [isLoading, setIsLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     const auth = async () => {
       const {
         data: { session },
-      } = await getUserSession();
+      } = await getUserSession()
 
       if (!session) {
-        router.replace('/auth/login');
+        router.replace('/auth/login')
       } else {
         setIsLoading(false)
       }
     }
-    auth();
+    auth()
   }, [])
 
   if (isLoading) {
-    return loadingSpinner();
+    return loadingSpinner()
   }
 
-
   const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
-  };
+    setActiveTab(tabId)
+  }
 
   const redirectToClass = (id: number, section: string) => {
-    router.push(`/classes/${section}/${id}`);
+    router.push(`/classes/${section}/${id}`)
   }
 
   return (
     <div>
-      <HeadTitles title='Nos classes' subtitle='Découvrez toutes les classes de l’IIM' />
-      <div className='p-8'>
-        <Card className='flex w-full justify-between'>
+      <HeadTitles
+        title="Nos classes"
+        subtitle="Découvrez toutes les classes de l’IIM"
+      />
+      <div className="p-8">
+        <Card className="flex w-full justify-between">
           <ul className="h-max border w-2/4">
             {tabData.map(tab => (
               <li
@@ -122,15 +133,29 @@ export default function Classes() {
                   <FontAwesomeIcon icon={tab.icon} className="pr-3 text-2xl" />
                   {tab.title}
                 </p>
-                {activeTab === tab.id ? <FontAwesomeIcon icon={faCaretRight} className="absolute right-[-2px] bottom-1/2 text-4xl text-primary translate-x-1/2 translate-y-1/2" /> : ''}
+                {activeTab === tab.id ? (
+                  <FontAwesomeIcon
+                    icon={faCaretRight}
+                    className="absolute right-[-2px] bottom-1/2 text-4xl text-primary translate-x-1/2 translate-y-1/2"
+                  />
+                ) : (
+                  ''
+                )}
               </li>
             ))}
           </ul>
           <div className="classes w-2/4 border-y border-r ">
             {tabData.map(tab => (
-              <ul key={tab.id} className={`last:border-b-0 ${tab.id} ${activeTab === tab.id ? '' : 'hidden'}`}>
+              <ul
+                key={tab.id}
+                className={`last:border-b-0 ${tab.id} ${activeTab === tab.id ? '' : 'hidden'}`}
+              >
                 {tab.children.map((child, index) => (
-                  <li key={index} className="cursor-pointer p-6 border-b list-none hover:bg-light-background" onClick={() => redirectToClass(index, tab.id)}>
+                  <li
+                    key={index}
+                    className="cursor-pointer p-6 border-b list-none hover:bg-light-background"
+                    onClick={() => redirectToClass(index, tab.id)}
+                  >
                     <p>{child}</p>
                   </li>
                 ))}
@@ -140,5 +165,5 @@ export default function Classes() {
         </Card>
       </div>
     </div>
-  );
+  )
 }

@@ -3,39 +3,39 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply font-poppins;
-    }
+  body {
+    @apply font-poppins;
+  }
 
-    p {
-        @apply text-lg;
-    }
+  p {
+    @apply text-lg;
+  }
 
-    h1 {
-        @apply text-4xl font-light;
-    }
+  h1 {
+    @apply text-4xl font-light;
+  }
 
-    h2 {
-        @apply text-2xl font-semibold;
-    }
+  h2 {
+    @apply text-2xl font-semibold;
+  }
 
-    h3 {
-        @apply text-xl font-semibold;
-    }
+  h3 {
+    @apply text-xl font-semibold;
+  }
 
-    label {
-        @apply text-sm font-semibold;
-    }
+  label {
+    @apply text-sm font-semibold;
+  }
 
-    input {
-        @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 focus:outline-none ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-primary sm:text-sm sm:leading-6 bg-light-background;
-    }
+  input {
+    @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 focus:outline-none ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-primary sm:text-sm sm:leading-6 bg-light-background;
+  }
 
-    select {
-        @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 focus:outline-none ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-primary sm:text-sm sm:leading-6 bg-light-background;
-    }
+  select {
+    @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 focus:outline-none ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-primary sm:text-sm sm:leading-6 bg-light-background;
+  }
 
-    textarea {
-        @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 focus:outline-none ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-primary sm:text-sm sm:leading-6 bg-light-background;
-    }
+  textarea {
+    @apply block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 focus:outline-none ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-primary sm:text-sm sm:leading-6 bg-light-background;
+  }
 }

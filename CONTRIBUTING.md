@@ -1,4 +1,5 @@
 # Bienvenue sur SpherIIM 🧡
+
 ## ⚠️ A lire attentivement si vous souhaitez collaborer sur ce projet
 
 Spheriim est un projet open source qui est développé par une communauté de contributeurs. Si vous souhaitez contribuer au projet, voici quelques indications pour vous aider à démarrer.
