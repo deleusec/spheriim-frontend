@@ -1,3 +1,4 @@
+import Calendar from "@/components/Calendar";
 import HeadTitles from "@/components/HeadTitles";
 import getUserSession from "@/lib/getUserSessions";
 import { redirect } from "next/navigation";
@@ -15,6 +16,8 @@ export default async function Home() {
     return (
         <div className="flex flex-col items-center justify-center">
           <HeadTitles title="Accueil" subtitle="Bienvenue sur SpherIIM" />
+          
+          <Calendar />
         </div>
     );
 }
