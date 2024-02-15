@@ -38,10 +38,6 @@ export default function Students() {
         auth();
     }, [])
 
-    if (isLoading) {
-        return loadingSpinner();
-    }
-
     useEffect(() => {
 
         const fetchData = async () => {
