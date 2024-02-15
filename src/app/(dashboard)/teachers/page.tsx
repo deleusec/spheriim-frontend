@@ -39,11 +39,6 @@ export default function Teachers() {
         auth();
     }, [])
 
-    if (isLoading) {
-        return loadingSpinner();
-    }
-
-
     useEffect(() => {
 
         const fetchData = async () => {
@@ -162,6 +157,11 @@ export default function Teachers() {
     const onFilterTextBoxChanged = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setQuickFilterText(event.target.value)
     }, [])
+
+    if (isLoading) {
+        return loadingSpinner();
+    }
+
     return (
         <div className="flex flex-col items-center justify-center bg-light-background">
             <HeadTitles title="Liste des professeurs" />

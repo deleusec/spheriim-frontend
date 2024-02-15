@@ -66,7 +66,20 @@ export default function Students() {
         fetchData();
     }, [errorMessage]);
 
+    useEffect(() => {
+        const auth = async () => {
+            const {
+                data: { session },
+            } = await getUserSession();
 
+            if (!session) {
+                router.replace('/auth/login');
+            } else {
+                setIsLoading(false)
+            }
+        }
+        auth();
+    }, [])
 
     const rowHeight = 90;
 
@@ -168,6 +181,10 @@ export default function Students() {
     const onFilterTextBoxChanged = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setQuickFilterText(event.target.value)
     }, [])
+
+    if (isLoading) {
+        return loadingSpinner();
+    }
 
     return (
         <div className="flex flex-col items-center justify-center bg-light-background">
